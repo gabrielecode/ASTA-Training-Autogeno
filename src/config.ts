@@ -39,6 +39,7 @@ export const LANG_STORAGE_KEY = "asta_lang";
 
 export const TRANSLATIONS: Record<Lang, {
   brandTitle: string;
+  brandSubtitle: string;
   navMetodo: string;
   navAudio: string;
   navTerapiste: string;
@@ -71,23 +72,17 @@ export const TRANSLATIONS: Record<Lang, {
   method3Desc: string;
   method4Title: string;
   method4Desc: string;
-  audioTag: string;
-  audioTitle: string;
-  audioSubtitle: string;
-  audioReady: string;
-  audioPhase1: string;
-  audioPhase2: string;
-  audioPhase3: string;
-  audioDone: string;
-  audioMsg1: string;
-  audioMsg2: string;
-  audioMsg3: string;
-  audioMsg4: string;
-  audioMsgDone: string;
-  audioStart: string;
-  audioPause: string;
-  audioReset: string;
-  audioNote: string;
+  journeyTag: string;
+  journeyTitle: string;
+  journeySubtitle: string;
+  step1Title: string;
+  step1Desc: string;
+  step2Title: string;
+  step2Desc: string;
+  step3Title: string;
+  step3Desc: string;
+  step4Title: string;
+  step4Desc: string;
   therapistsTag: string;
   therapistsTitle: string;
   therapistsSubtitle: string;
@@ -150,9 +145,10 @@ export const TRANSLATIONS: Record<Lang, {
   closeBtn: string;
 }> = {
   it: {
-    brandTitle: "ASTA Lugano",
+    brandTitle: "ASTA",
+    brandSubtitle: "Associazione di Training Autogeno Svizzera",
     navMetodo: "Il Metodo",
-    navAudio: "Audio Guidato",
+    navAudio: "Il Percorso",
     navTerapiste: "Terapiste RME",
     navRimborso: "Cassa Malati",
     navFaq: "FAQ",
@@ -183,23 +179,17 @@ export const TRANSLATIONS: Record<Lang, {
     method3Desc: "Armonizza il battito cardiaco e la pressione sanguigna, riducendo l'iperattivazione del sistema nervoso simpatico.",
     method4Title: "Respiro & Mente",
     method4Desc: "Regola spontaneamente la respirazione e dona una calma mentale profonda, ideale contro insonnia e stati d'ansia.",
-    audioTag: "Simulatore Interattivo ASTA",
-    audioTitle: "Sperimenta la quiete: Mini-Sessione Guidata",
-    audioSubtitle: "Prova subito una sessione guidata di 3 minuti. Trova una posizione comoda, respira lentamente e segui le formule di base del Training Autogeno.",
-    audioReady: "Pronto per iniziare",
-    audioPhase1: "Fase 1: Sensazione di Pesantezza",
-    audioPhase2: "Fase 2: Sensazione di Calore",
-    audioPhase3: "Fase 3: Calma e Respiro Profondo",
-    audioDone: "Sessione Completata con Successo",
-    audioMsg1: "Preparati a rilassare corpo e mente",
-    audioMsg2: "\"Il mio braccio destro è piacevolmente pesante...\"",
-    audioMsg3: "\"Il mio braccio destro è piacevolmente caldo...\"",
-    audioMsg4: "\"Il mio respiro è calmo e profondo...\"",
-    audioMsgDone: "Hai completato il tuo momento di rigenerazione",
-    audioStart: "Avvia Sessione",
-    audioPause: "Pausa",
-    audioReset: "Ricomincia",
-    audioNote: "Nota: Questa è una simulazione web dimostrativa. Per risultati terapeutici ottimali, si consiglia un ciclo guidato da una terapista RME qualificata.",
+    journeyTag: "Il percorso in 4 fasi",
+    journeyTitle: "Come funziona nella vita quotidiana",
+    journeySubtitle: "Un approccio graduale e strutturato per integrare il Training Autogeno nella tua routine e ritrovare stabilità interiore.",
+    step1Title: "Concentrazione psichica",
+    step1Desc: "Impari a rivolgere l'attenzione verso l'interno, riducendo gradualmente gli stimoli esterni.",
+    step2Title: "Rilassamento somatico",
+    step2Desc: "Attraverso formule specifiche, il corpo sperimenta distensione, pesantezza e calore.",
+    step3Title: "Esercizio quotidiano",
+    step3Desc: "Bastano pochi minuti al giorno a casa per consolidare il riflesso naturale di calma.",
+    step4Title: "Piena autonomia",
+    step4Desc: "Applichi la tecnica in indipendenza nei momenti di tensione lavorativa o personale.",
     therapistsTag: "Rete Ufficiale ASTA Ticino",
     therapistsTitle: "Terapiste RME riconosciute a Lugano e in Svizzera",
     therapistsSubtitle: "Visita la nostra sede centrale a Lugano o prenota una seduta online in videoconferenza con professioniste accreditate dalle casse malati.",
@@ -262,9 +252,10 @@ export const TRANSLATIONS: Record<Lang, {
     closeBtn: "Chiudi"
   },
   fr: {
-    brandTitle: "ASTA Lugano",
+    brandTitle: "ASTA",
+    brandSubtitle: "Association Suisse de Training Autogène",
     navMetodo: "La Méthode",
-    navAudio: "Audio Guidé",
+    navAudio: "Le Parcours",
     navTerapiste: "Thérapeutes RME",
     navRimborso: "Assurance Maladie",
     navFaq: "FAQ",
@@ -295,23 +286,17 @@ export const TRANSLATIONS: Record<Lang, {
     method3Desc: "Harmonise les battements du cœur et réduit l'hyperactivation du système nerveux.",
     method4Title: "Respiration & Esprit",
     method4Desc: "Régule spontanément la respiration et apporte un calme mental profond.",
-    audioTag: "Simulateur Interactif ASTA",
-    audioTitle: "Expérimentez la quiétude : Mini-Session Guidée",
-    audioSubtitle: "Essayez immédiatement une séance guidée de 3 minutes. Trouvez une position confortable et suivez les formules de base.",
-    audioReady: "Prêt à commencer",
-    audioPhase1: "Phase 1 : Sensation de Lourdeur",
-    audioPhase2: "Phase 2 : Sensation de Chaleur",
-    audioPhase3: "Phase 3 : Calme et Respiration Profonde",
-    audioDone: "Session Terminée avec Succès",
-    audioMsg1: "Préparez-vous à détendre corps et esprit",
-    audioMsg2: "\"Mon bras droit est agréablement lourd...\"",
-    audioMsg3: "\"Mon bras droit est agréablement chaud...\"",
-    audioMsg4: "\"Ma respiration est calme et profonde...\"",
-    audioMsgDone: "Vous avez complété votre moment de régénération",
-    audioStart: "Lancer la Session",
-    audioPause: "Pause",
-    audioReset: "Recommencer",
-    audioNote: "Note : Ceci est une simulation web. Pour des résultats thérapeutiques optimaux, un cycle guidé par une thérapeute RME est conseillé.",
+    journeyTag: "Le parcours en 4 étapes",
+    journeyTitle: "Comment cela fonctionne dans la vie quotidienne",
+    journeySubtitle: "Une approche progressive et structurée pour intégrer le Training Autogène dans votre routine et retrouver stabilité.",
+    step1Title: "Concentration psychique",
+    step1Desc: "Vous apprenez à tourner votre attention vers l'intérieur en réduisant les stimuli extérieurs.",
+    step2Title: "Relaxation somatique",
+    step2Desc: "Grâce à des formules spécifiques, le corps ressent détente, lourdeur et chaleur.",
+    step3Title: "Pratique quotidienne",
+    step3Desc: "Quelques minutes par jour à la maison suffisent pour consolider le réflexe de calme.",
+    step4Title: "Pleine autonomie",
+    step4Desc: "Vous appliquez la technique de manière autonome lors des moments de tension professionnelle ou personnelle.",
     therapistsTag: "Réseau Officiel ASTA",
     therapistsTitle: "Thérapeutes RME reconnues à Lugano et en Suisse",
     therapistsSubtitle: "Visitez notre siège central à Lugano ou réservez une séance en ligne par visioconférence.",
@@ -374,9 +359,10 @@ export const TRANSLATIONS: Record<Lang, {
     closeBtn: "Fermer"
   },
   de: {
-    brandTitle: "ASTA Lugano",
+    brandTitle: "ASTA",
+    brandSubtitle: "Schweizerischer Verband für Autogenes Training",
     navMetodo: "Die Methode",
-    navAudio: "Geführtes Audio",
+    navAudio: "Der Weg",
     navTerapiste: "RME-Therapeutinnen",
     navRimborso: "Krankenkasse",
     navFaq: "FAQ",
@@ -407,23 +393,17 @@ export const TRANSLATIONS: Record<Lang, {
     method3Desc: "Harmonisiert Herzschlag und Blutdruck und beruhigt das Nervensystem.",
     method4Title: "Atem & Geist",
     method4Desc: "Reguliert die Atmung und schenkt tiefe mentale Ruhe.",
-    audioTag: "ASTA Interaktiver Simulator",
-    audioTitle: "Erleben Sie Ruhe: Die Geführte Mini-Session",
-    audioSubtitle: "Probieren Sie sofort eine 3-minütige geführte Sitzung aus. Finden Sie eine bequeme Position und folgen Sie den Grundformeln.",
-    audioReady: "Bereit zum Start",
-    audioPhase1: "Phase 1: Schweregefühl",
-    audioPhase2: "Phase 2: Wärmegefühl",
-    audioPhase3: "Phase 3: Ruhe und Tiefer Atem",
-    audioDone: "Sitzung Erfolgreich Beendet",
-    audioMsg1: "Bereiten Sie sich darauf vor, Körper und Geist zu entspannen",
-    audioMsg2: "\"Mein rechter Arm ist angenehm schwer...\"",
-    audioMsg3: "\"Mein rechter Arm ist angenehm warm...\"",
-    audioMsg4: "\"Mein Atem ist ruhig und tief...\"",
-    audioMsgDone: "Sie haben Ihren Moment der Regeneration abgeschlossen",
-    audioStart: "Session Starten",
-    audioPause: "Pause",
-    audioReset: "Neu Starten",
-    audioNote: "Hinweis: Dies ist eine Web-Simulation. Für optimale therapeutische Ergebnisse wird ein Zyklus mit einer RME-Therapeutin empfohlen.",
+    journeyTag: "Der Weg in 4 Phasen",
+    journeyTitle: "Wie es im Alltag funktioniert",
+    journeySubtitle: "Ein schrittweiser und strukturierter Ansatz, um das Autogene Training in Ihren Alltag zu integrieren.",
+    step1Title: "Psychische Konzentration",
+    step1Desc: "Sie lernen, Ihre Aufmerksamkeit nach innen zu richten und äussere Reize zu reduzieren.",
+    step2Title: "Somatische Entspannung",
+    step2Desc: "Durch gezielte Formeln erfährt der Körper Ruhe, Schwere und angenehme Wärme.",
+    step3Title: "Tägliches Üben",
+    step3Desc: "Wenige Minuten pro Tag zu Hause genügen, um den natürlichen Entspannungsreflex zu festigen.",
+    step4Title: "Volle Autonomie",
+    step4Desc: "Sie wenden die Technik selbstständig im beruflichen oder privaten Alltag an.",
     therapistsTag: "Offizielles ASTA Netzwerk",
     therapistsTitle: "Aerkannte RME-Therapeutinnen in Lugano und der Schweiz",
     therapistsSubtitle: "Besuchen Sie unseren Hauptsitz in Lugano oder buchen Sie eine Online-Sitzung per Videokonferenz.",
@@ -486,9 +466,10 @@ export const TRANSLATIONS: Record<Lang, {
     closeBtn: "Schliessen"
   },
   en: {
-    brandTitle: "ASTA Lugano",
+    brandTitle: "ASTA",
+    brandSubtitle: "Swiss Autogenic Training Association",
     navMetodo: "The Method",
-    navAudio: "Guided Audio",
+    navAudio: "The Journey",
     navTerapiste: "RME Therapists",
     navRimborso: "Health Insurance",
     navFaq: "FAQ",
@@ -519,23 +500,17 @@ export const TRANSLATIONS: Record<Lang, {
     method3Desc: "Harmonizes heartbeat and blood pressure, reducing sympathetic nervous system overactivation.",
     method4Title: "Breath & Mind",
     method4Desc: "Spontaneously regulates breathing and delivers profound mental calm, ideal against insomnia.",
-    audioTag: "ASTA Interactive Simulator",
-    audioTitle: "Experience Quiet: Guided Mini-Session",
-    audioSubtitle: "Try a 3-minute guided session right now. Find a comfortable position, breathe slowly, and follow the core Autogenic formulas.",
-    audioReady: "Ready to start",
-    audioPhase1: "Phase 1: Heaviness Sensation",
-    audioPhase2: "Phase 2: Warmth Sensation",
-    audioPhase3: "Phase 3: Calm & Deep Breath",
-    audioDone: "Session Successfully Completed",
-    audioMsg1: "Prepare to relax body and mind",
-    audioMsg2: "\"My right arm is pleasantly heavy...\"",
-    audioMsg3: "\"My right arm is pleasantly warm...\"",
-    audioMsg4: "\"My breathing is calm and deep...\"",
-    audioMsgDone: "You have completed your regeneration moment",
-    audioStart: "Start Session",
-    audioPause: "Pause",
-    audioReset: "Restart",
-    audioNote: "Note: This is a web demonstration. For optimal therapeutic results, a guided cycle with an RME certified therapist is recommended.",
+    journeyTag: "The 4-Step Journey",
+    journeyTitle: "How it works in daily life",
+    journeySubtitle: "A gradual approach to integrate Autogenic Training into your routine and restore inner calm.",
+    step1Title: "Mental Focus",
+    step1Desc: "You learn to turn your attention inward, gradually reducing external distractions.",
+    step2Title: "Somatic Relaxation",
+    step2Desc: "Through specific formulas, the body experiences deep release, heaviness, and warmth.",
+    step3Title: "Daily Practice",
+    step3Desc: "Just a few minutes a day at home are enough to reinforce the natural calm response.",
+    step4Title: "Full Autonomy",
+    step4Desc: "You apply the technique independently whenever facing work or personal stress.",
     therapistsTag: "Official ASTA Network",
     therapistsTitle: "RME Recognized Therapists in Lugano and Switzerland",
     therapistsSubtitle: "Visit our central office in Lugano or book an online video session with accredited professionals.",

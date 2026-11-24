@@ -6,10 +6,11 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, Calendar, MapPin, Phone, Mail, Clock, CheckCircle2, 
-  ChevronRight, ChevronDown, Play, Pause, RotateCcw, Award, Sparkles, 
+  ChevronRight, ChevronDown, Award, Sparkles, 
   Heart, Users, HelpCircle, Check, ArrowRight, Menu, X, Star, Cookie, Shield, FileText, Lock, Globe
 } from 'lucide-react';
 import { ORG_EMAIL, ORG_NAME, ORG_SEDE, ORG_PHONE, LANGS, Lang, LANG_META, DEFAULT_LANG, LANG_STORAGE_KEY, TRANSLATIONS } from './config';
+import { AstaBrand } from './components/AstaLogo';
 
 interface Therapist {
   id: string;
@@ -56,11 +57,6 @@ export default function App() {
     notes: ''
   });
 
-  // Relaxation Timer State
-  const [timerActive, setTimerActive] = useState(false);
-  const [timerPhase, setTimerPhase] = useState<'idle' | 'pesantezza' | 'calore' | 'respiro' | 'completato'>('idle');
-  const [secondsLeft, setSecondsLeft] = useState(60);
-
   const t = TRANSLATIONS[lang];
 
   useEffect(() => {
@@ -79,45 +75,6 @@ export default function App() {
     const twDescEl = document.querySelector('meta[name="twitter:description"]');
     if (twDescEl) twDescEl.setAttribute('content', meta.description);
   }, [lang]);
-
-  useEffect(() => {
-    let interval: any = null;
-    if (timerActive && secondsLeft > 0) {
-      interval = setInterval(() => {
-        setSecondsLeft((prev) => prev - 1);
-      }, 1000);
-    } else if (secondsLeft === 0 && timerActive) {
-      if (timerPhase === 'pesantezza') {
-        setTimerPhase('calore');
-        setSecondsLeft(60);
-      } else if (timerPhase === 'calore') {
-        setTimerPhase('respiro');
-        setSecondsLeft(60);
-      } else if (timerPhase === 'respiro') {
-        setTimerPhase('completato');
-        setTimerActive(false);
-      }
-    }
-    return () => clearInterval(interval);
-  }, [timerActive, secondsLeft, timerPhase]);
-
-  const startTimer = () => {
-    setTimerActive(true);
-    if (timerPhase === 'idle' || timerPhase === 'completato') {
-      setTimerPhase('pesantezza');
-      setSecondsLeft(60);
-    }
-  };
-
-  const pauseTimer = () => {
-    setTimerActive(false);
-  };
-
-  const resetTimer = () => {
-    setTimerActive(false);
-    setTimerPhase('idle');
-    setSecondsLeft(60);
-  };
 
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -193,12 +150,7 @@ export default function App() {
       {/* TOP BAR CONTRACT (3 zones: Brand wordmark, Nav links, Primary CTA + Language Switcher) */}
       <header className="sticky top-0 z-40 bg-[#F8FAF6]/95 backdrop-blur-md border-b border-[#334E3B]/10 px-6 lg:px-12 py-4 flex items-center justify-between gap-8">
         {/* Zone 1: Brand Wordmark */}
-        <a href="#" className="flex items-center gap-2.5 text-xl font-bold font-serif text-[#334E3B] whitespace-nowrap shrink-0">
-          <div className="w-8 h-8 rounded-full bg-[#334E3B] text-white flex items-center justify-center font-sans text-sm font-semibold">
-            A
-          </div>
-          <span>{t.brandTitle}</span>
-        </a>
+        <AstaBrand subtitleText={t.brandSubtitle} variant="dark" size={38} />
 
         {/* Zone 2: Navigation Links */}
         <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#2C3531]/80">
@@ -404,91 +356,104 @@ export default function App() {
         </div>
       </section>
 
-      {/* INTERACTIVE RELAXATION TIMER / AUDIO GUIDE SIMULATOR */}
-      <section id="audio-guide" className="py-20 px-6 lg:px-12 bg-[#334E3B] text-white">
-        <div className="max-w-4xl mx-auto space-y-12">
+      {/* THE 4-STEP JOURNEY SECTION */}
+      <section id="audio-guide" className="py-20 px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto space-y-16">
           
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white text-xs font-semibold tracking-wide">
-              <Sparkles className="w-4 h-4 text-[#D4A373]" />
-              <span>{t.audioTag}</span>
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#334E3B]/10 text-[#334E3B] text-xs font-semibold tracking-wide">
+              <Sparkles className="w-4 h-4 text-[#334E3B]" />
+              <span>{t.journeyTag}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold">
-              {t.audioTitle}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#2C3531] tracking-tight">
+              {t.journeyTitle}
             </h2>
-            <p className="text-white/80 max-w-2xl mx-auto text-sm sm:text-base">
-              {t.audioSubtitle}
+            <p className="text-[#2C3531]/70 leading-relaxed text-base sm:text-lg">
+              {t.journeySubtitle}
             </p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-white/20 text-center space-y-8 shadow-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <div className="space-y-2">
-              <p className="text-xs uppercase tracking-widest text-[#D4A373] font-semibold">
-                {timerPhase === 'idle' && t.audioReady}
-                {timerPhase === 'pesantezza' && t.audioPhase1}
-                {timerPhase === 'calore' && t.audioPhase2}
-                {timerPhase === 'respiro' && t.audioPhase3}
-                {timerPhase === 'completato' && t.audioDone}
-              </p>
-              
-              <h3 className="text-2xl sm:text-3xl font-serif font-medium">
-                {timerPhase === 'idle' && t.audioMsg1}
-                {timerPhase === 'pesantezza' && t.audioMsg2}
-                {timerPhase === 'calore' && t.audioMsg3}
-                {timerPhase === 'respiro' && t.audioMsg4}
-                {timerPhase === 'completato' && t.audioMsgDone}
-              </h3>
-            </div>
-
-            {/* Timer circle */}
-            <div className="relative w-44 h-44 mx-auto flex items-center justify-center rounded-full border-4 border-white/20 bg-white/5 shadow-inner">
-              <div className={`absolute inset-0 rounded-full border-4 border-[#D4A373] ${timerActive ? 'animate-pulse' : ''}`}></div>
-              <div className="text-center z-10">
-                <span className="text-4xl font-serif font-bold">
-                  {timerPhase === 'completato' ? '✓' : `${Math.floor(secondsLeft / 60)}:${(secondsLeft % 60).toString().padStart(2, '0')}`}
-                </span>
-                <p className="text-xs text-white/70 mt-1">
-                  {timerPhase === 'idle' ? '3 min' : ''}
+            {/* Card 01 */}
+            <div className="bg-[#F8FAF6] rounded-2xl rounded-tr-3xl p-8 border border-[#334E3B]/10 hover:shadow-lg transition-all flex flex-col justify-between space-y-6 group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-[#334E3B] text-white flex items-center justify-center font-serif text-lg font-bold shadow-sm">
+                    01
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-[#334E3B]/10 text-[#334E3B] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-[#2C3531]">{t.step1Title}</h3>
+                <p className="text-sm text-[#2C3531]/75 leading-relaxed">
+                  {t.step1Desc}
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-              {!timerActive && timerPhase !== 'completato' && (
-                <button 
-                  onClick={startTimer}
-                  className="px-8 py-3.5 bg-[#D4A373] text-[#2C3531] font-semibold rounded-xl hover:bg-[#c39263] transition-colors flex items-center gap-2 shadow-lg cursor-pointer"
-                >
-                  <Play className="w-4 h-4 fill-current" />
-                  <span>{t.audioStart}</span>
-                </button>
-              )}
-
-              {timerActive && (
-                <button 
-                  onClick={pauseTimer}
-                  className="px-8 py-3.5 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-colors flex items-center gap-2 cursor-pointer"
-                >
-                  <Pause className="w-4 h-4 fill-current" />
-                  <span>{t.audioPause}</span>
-                </button>
-              )}
-
-              {timerPhase !== 'idle' && (
-                <button 
-                  onClick={resetTimer}
-                  className="px-6 py-3.5 bg-transparent border border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors flex items-center gap-2 cursor-pointer"
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  <span>{t.audioReset}</span>
-                </button>
-              )}
+            {/* Card 02 */}
+            <div className="bg-[#F8FAF6] rounded-2xl rounded-tr-3xl p-8 border border-[#334E3B]/10 hover:shadow-lg transition-all flex flex-col justify-between space-y-6 group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-[#334E3B] text-white flex items-center justify-center font-serif text-lg font-bold shadow-sm">
+                    02
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-[#334E3B]/10 text-[#334E3B] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-[#2C3531]">{t.step2Title}</h3>
+                <p className="text-sm text-[#2C3531]/75 leading-relaxed">
+                  {t.step2Desc}
+                </p>
+              </div>
             </div>
 
-            <p className="text-xs text-white/60 max-w-md mx-auto">
-              {t.audioNote}
-            </p>
+            {/* Card 03 */}
+            <div className="bg-[#F8FAF6] rounded-2xl rounded-tr-3xl p-8 border border-[#334E3B]/10 hover:shadow-lg transition-all flex flex-col justify-between space-y-6 group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-[#334E3B] text-white flex items-center justify-center font-serif text-lg font-bold shadow-sm">
+                    03
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-[#334E3B]/10 text-[#334E3B] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-[#2C3531]">{t.step3Title}</h3>
+                <p className="text-sm text-[#2C3531]/75 leading-relaxed">
+                  {t.step3Desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Card 04 */}
+            <div className="bg-[#F8FAF6] rounded-2xl rounded-tr-3xl p-8 border border-[#334E3B]/10 hover:shadow-lg transition-all flex flex-col justify-between space-y-6 group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-[#334E3B] text-white flex items-center justify-center font-serif text-lg font-bold shadow-sm">
+                    04
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-[#334E3B]/10 text-[#334E3B] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-[#2C3531]">{t.step4Title}</h3>
+                <p className="text-sm text-[#2C3531]/75 leading-relaxed">
+                  {t.step4Desc}
+                </p>
+              </div>
+            </div>
 
           </div>
 
@@ -750,12 +715,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
           
           <div className="space-y-4 md:col-span-2">
-            <div className="flex items-center gap-2.5 text-xl font-bold font-serif text-white">
-              <div className="w-8 h-8 rounded-full bg-[#D4A373] text-[#2C3531] flex items-center justify-center font-sans text-sm font-semibold">
-                A
-              </div>
-              <span>{ORG_NAME}</span>
-            </div>
+            <AstaBrand subtitleText={t.brandSubtitle} variant="light" size={38} />
             <p className="text-sm text-white/70 max-w-sm leading-relaxed">
               {t.footerDesc}
             </p>
