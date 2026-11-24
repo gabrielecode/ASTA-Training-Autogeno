@@ -126,6 +126,37 @@ export const TRANSLATIONS: Record<Lang, {
     goalsTitle: string;
     goals: readonly string[];
   };
+  joinAsta: {
+    tag: string;
+    title: string;
+    subtitle: string;
+    therapistTitle: string;
+    therapistBadge: string;
+    therapistDesc: string;
+    therapistCta: string;
+    supporterTitle: string;
+    supporterBadge: string;
+    supporterDesc: string;
+    supporterCta: string;
+    modalTag: string;
+    modalTitle: string;
+    modalRecipientLabel: string;
+    fieldType: string;
+    typeActive: string;
+    typeSupporter: string;
+    fieldNameOrg: string;
+    fieldNameOrgPlaceholder: string;
+    fieldRmeNumber: string;
+    fieldRmePlaceholder: string;
+    fieldNotesPlaceholderActive: string;
+    fieldNotesPlaceholderSupporter: string;
+    submitButton: string;
+    successTitle: string;
+    successDesc: string;
+    mailtoButton: string;
+    emailSubjectActive: string;
+    emailSubjectSupporter: string;
+  };
   footerDesc: string;
   footerSedeTitle: string;
   footerContactTitle: string;
@@ -252,6 +283,37 @@ export const TRANSLATIONS: Record<Lang, {
         "Dialogare con i registri e le casse malati (RME/EMR, ASCA, SNE/EGK), per mantenere i requisiti di riconoscimento.",
         "Rispondere ai bisogni della comunità con strumenti non invasivi e sicuri per la gestione di stress e tensioni."
       ] as const
+    },
+    joinAsta: {
+      tag: "Adesione all'Associazione",
+      title: "Entra in ASTA",
+      subtitle: "Scegli la formula più adatta al tuo profilo e contribuisci alla diffusione di un Training Autogeno di qualità in Svizzera.",
+      therapistTitle: "Terapisti complementari TA RME",
+      therapistBadge: "Socio attivo",
+      therapistDesc: "Sei un/una terapista complementare TA RME? Unisciti all'associazione per partecipare a supervisioni e intervisioni, eventi formativi e a una rete professionale che promuove qualità ed etica.",
+      therapistCta: "Richiedi l'ammissione",
+      supporterTitle: "Sostieni ASTA",
+      supporterBadge: "Membro passivo",
+      supporterDesc: "Vuoi sostenere il Training Autogeno? Persone e organizzazioni possono sostenere ASTA come soci sostenitori (membri passivi).",
+      supporterCta: "Diventa sostenitore",
+      modalTag: "Richiesta di Adesione ASTA",
+      modalTitle: "Entra in ASTA",
+      modalRecipientLabel: "Destinatario:",
+      fieldType: "Tipologia di adesione *",
+      typeActive: "Socio attivo – Terapista TA RME",
+      typeSupporter: "Socio sostenitore (membro passivo)",
+      fieldNameOrg: "Nome e Cognome / Organizzazione *",
+      fieldNameOrgPlaceholder: "es. Anna Rossi oppure Studio / Ente",
+      fieldRmeNumber: "Numero RME / ASCA (opzionale)",
+      fieldRmePlaceholder: "es. RME #123456",
+      fieldNotesPlaceholderActive: "Es. Sede di attività, formazione in Training Autogeno, motivazione...",
+      fieldNotesPlaceholderSupporter: "Es. Adesione individuale o organizzazione, eventuali domande sul sostegno ad ASTA...",
+      submitButton: "Invia Richiesta di Adesione",
+      successTitle: "Richiesta Preparata per l'Invio!",
+      successDesc: "La tua richiesta è pronta per essere inviata a",
+      mailtoButton: "Apri Email Precompilata",
+      emailSubjectActive: "Richiesta ammissione ASTA – Socio attivo (Terapista TA RME)",
+      emailSubjectSupporter: "Richiesta adesione ASTA – Socio sostenitore (membro passivo)"
     },
     footerDesc: "L'Associazione Svizzera di Training Autogeno (ASTA) è nata nel 2026, con sede a Lugano, come associazione senza scopo di lucro. Riunisce i professionisti del Training Autogeno con l'obiettivo di promuoverne la corretta applicazione e di diffondere informazioni scientificamente fondate.",
     footerSedeTitle: "Sede Centrale",
@@ -380,6 +442,37 @@ export const TRANSLATIONS: Record<Lang, {
         "Répondre aux besoins de la communauté avec des outils non invasifs et sûrs pour la gestion du stress et des tensions."
       ] as const
     },
+    joinAsta: {
+      tag: "Adhésion à l'Association",
+      title: "Rejoindre ASTA",
+      subtitle: "Choisissez la formule adaptée à votre profil et contribuez à la promotion d'un Training Autogène de qualité en Suisse.",
+      therapistTitle: "Thérapeutes complémentaires TA RME",
+      therapistBadge: "Membre actif",
+      therapistDesc: "Vous êtes thérapeute complémentaire TA RME ? Rejoignez l'association pour participer aux supervisions et intervisions, aux événements de formation et à un réseau professionnel qui promeut la qualité et l'éthique.",
+      therapistCta: "Demander l'admission",
+      supporterTitle: "Soutenir ASTA",
+      supporterBadge: "Membre passif",
+      supporterDesc: "Souhaitez-vous soutenir le Training Autogène ? Les particuliers et les organisations peuvent soutenir ASTA en tant que membres donateurs (membres passifs).",
+      supporterCta: "Devenir membre donateur",
+      modalTag: "Demande d'Adhésion ASTA",
+      modalTitle: "Rejoindre ASTA",
+      modalRecipientLabel: "Destinataire :",
+      fieldType: "Type d'adhésion *",
+      typeActive: "Membre actif – Thérapeute TA RME",
+      typeSupporter: "Membre donateur (membre passif)",
+      fieldNameOrg: "Nom et Prénom / Organisation *",
+      fieldNameOrgPlaceholder: "ex. Anna Rossi ou Cabinet / Organisation",
+      fieldRmeNumber: "Numéro RME / ASCA (optionnel)",
+      fieldRmePlaceholder: "ex. RME #123456",
+      fieldNotesPlaceholderActive: "Ex. Lieu d'activité, formation en Training Autogène, motivation...",
+      fieldNotesPlaceholderSupporter: "Ex. Adhésion individuelle ou organisation, questions sur le soutien à ASTA...",
+      submitButton: "Envoyer la Demande d'Adhésion",
+      successTitle: "Demande Prête pour l'Envoi !",
+      successDesc: "Votre demande est prête à être envoyée à",
+      mailtoButton: "Ouvrir l'E-mail Prérempli",
+      emailSubjectActive: "Demande d'admission ASTA – Membre actif (Thérapeute TA RME)",
+      emailSubjectSupporter: "Demande d'adhésion ASTA – Membre donateur (membre passif)"
+    },
     footerDesc: "Association professionnelle de thérapeutes qualifiées en Training Autogène. Siège central à Lugano.",
     footerSedeTitle: "Siège Central",
     footerContactTitle: "Contacts & Info",
@@ -507,6 +600,37 @@ export const TRANSLATIONS: Record<Lang, {
         "Auf die Bedürfnisse der Gemeinschaft mit nicht-invasiven und sicheren Methoden zur Bewältigung von Stress und Spannungen eingehen."
       ] as const
     },
+    joinAsta: {
+      tag: "Verbandsmitgliedschaft",
+      title: "ASTA beitreten",
+      subtitle: "Wählen Sie die passende Mitgliedschaft und unterstützen Sie die Qualität und Verbreitung des Autogenen Trainings in der Schweiz.",
+      therapistTitle: "Komplementärtherapeut:innen AT EMR",
+      therapistBadge: "Aktivmitglied",
+      therapistDesc: "Sind Sie Komplementärtherapeut:in AT EMR? Treten Sie dem Verband bei, um an Supervisionen, Intervisionen, Weiterbildungen und einem professionellen Netzwerk für Qualität und Ethik teilzunehmen.",
+      therapistCta: "Mitgliedschaft beantragen",
+      supporterTitle: "ASTA unterstützen",
+      supporterBadge: "Passivmitglied",
+      supporterDesc: "Möchten Sie das Autogene Training unterstützen? Einzelpersonen und Organisationen können ASTA als Gönnermitglieder (Passivmitglieder) unterstützen.",
+      supporterCta: "Gönner werden",
+      modalTag: "ASTA Beitrittsgesuch",
+      modalTitle: "ASTA beitreten",
+      modalRecipientLabel: "Empfänger:",
+      fieldType: "Art der Mitgliedschaft *",
+      typeActive: "Aktivmitglied – Therapeut:in AT EMR",
+      typeSupporter: "Gönnermitglied (Passivmitglied)",
+      fieldNameOrg: "Vor- und Nachname / Organisation *",
+      fieldNameOrgPlaceholder: "z. B. Anna Rossi oder Praxis / Organisation",
+      fieldRmeNumber: "EMR- / ASCA-Nummer (optional)",
+      fieldRmePlaceholder: "z. B. EMR #123456",
+      fieldNotesPlaceholderActive: "z. B. Praxisstandort, Ausbildung in Autogenem Training, Motivation...",
+      fieldNotesPlaceholderSupporter: "z. B. Einzelperson oder Organisation, Fragen zur Unterstützung von ASTA...",
+      submitButton: "Beitrittsgesuch absenden",
+      successTitle: "Anfrage zum Versand bereit!",
+      successDesc: "Ihre Anfrage ist bereit für den Versand an",
+      mailtoButton: "Vorausgefüllte E-Mail öffnen",
+      emailSubjectActive: "Beitrittsgesuch ASTA – Aktivmitglied (Therapeut:in AT EMR)",
+      emailSubjectSupporter: "Beitrittsgesuch ASTA – Gönnermitglied (Passivmitglied)"
+    },
     footerDesc: "Berufsverband qualifizierter Therapeutinnen für Autogenes Training. Hauptsitz in Lugano.",
     footerSedeTitle: "Hauptsitz",
     footerContactTitle: "Kontakt & Info",
@@ -633,6 +757,37 @@ export const TRANSLATIONS: Record<Lang, {
         "Maintain dialogue with registries and health insurers (RME/EMR, ASCA, SNE/EGK) to uphold recognition requirements.",
         "Meet community needs with safe, non-invasive tools for managing stress and tension."
       ] as const
+    },
+    joinAsta: {
+      tag: "Association Membership",
+      title: "Join ASTA",
+      subtitle: "Choose the membership option that fits your profile and help promote high-quality Autogenic Training in Switzerland.",
+      therapistTitle: "RME Complementary Therapists AT",
+      therapistBadge: "Active member",
+      therapistDesc: "Are you an RME-certified Autogenic Training therapist? Join the association to take part in supervision and peer intervision, training events, and a professional network promoting quality and ethics.",
+      therapistCta: "Apply for membership",
+      supporterTitle: "Support ASTA",
+      supporterBadge: "Passive member",
+      supporterDesc: "Would you like to support Autogenic Training? Individuals and organizations can support ASTA as supporting members (passive members).",
+      supporterCta: "Become a supporter",
+      modalTag: "ASTA Membership Application",
+      modalTitle: "Join ASTA",
+      modalRecipientLabel: "Recipient:",
+      fieldType: "Membership type *",
+      typeActive: "Active member – RME Therapist AT",
+      typeSupporter: "Supporting member (passive member)",
+      fieldNameOrg: "Full Name / Organization *",
+      fieldNameOrgPlaceholder: "e.g. Anna Rossi or Practice / Organization",
+      fieldRmeNumber: "RME / ASCA Number (optional)",
+      fieldRmePlaceholder: "e.g. RME #123456",
+      fieldNotesPlaceholderActive: "e.g. Practice location, Autogenic Training qualification, motivation...",
+      fieldNotesPlaceholderSupporter: "e.g. Individual or organization membership, any questions about supporting ASTA...",
+      submitButton: "Send Membership Request",
+      successTitle: "Request Ready to Send!",
+      successDesc: "Your request is ready to be sent to",
+      mailtoButton: "Open Pre-filled Email",
+      emailSubjectActive: "ASTA Membership Application – Active Member (RME Therapist AT)",
+      emailSubjectSupporter: "ASTA Membership Application – Supporting Member (Passive Member)"
     },
     footerDesc: "Professional association of qualified Autogenic Training therapists. Central office in Lugano and RME & ASCA recognition.",
     footerSedeTitle: "Central Office",

@@ -59,6 +59,19 @@ export default function App() {
     notes: ''
   });
 
+  // Membership Modal States ("Entra in ASTA")
+  const [membershipModalOpen, setMembershipModalOpen] = useState(false);
+  const [membershipType, setMembershipType] = useState<'active' | 'supporter'>('active');
+  const [membershipSubmitted, setMembershipSubmitted] = useState(false);
+  const [membershipConsentChecked, setMembershipConsentChecked] = useState(false);
+  const [membershipFormData, setMembershipFormData] = useState({
+    nameOrg: '',
+    email: '',
+    phone: '',
+    rmeNumber: '',
+    notes: ''
+  });
+
   const t = TRANSLATIONS[lang];
 
   useEffect(() => {
@@ -157,6 +170,37 @@ export default function App() {
       setBookingModalOpen(false);
       setFormData({ name: '', email: '', phone: '', location: 'Lugano Centro', notes: '' });
     }, 3500);
+  };
+
+  const openMembershipModal = (type: 'active' | 'supporter') => {
+    setMembershipType(type);
+    setMembershipSubmitted(false);
+    setMembershipModalOpen(true);
+  };
+
+  const buildMembershipMailto = () => {
+    const isSupporter = membershipType === 'supporter';
+    const subject = isSupporter ? t.joinAsta.emailSubjectSupporter : t.joinAsta.emailSubjectActive;
+    const typeLabel = isSupporter ? t.joinAsta.typeSupporter : t.joinAsta.typeActive;
+    const bodyLines = [
+      `${t.joinAsta.fieldType.replace(' *', '')}: ${typeLabel}`,
+      `${t.joinAsta.fieldNameOrg.replace(' *', '')}: ${membershipFormData.nameOrg}`,
+      `${t.fieldEmail.replace(' *', '')}: ${membershipFormData.email}`,
+      membershipFormData.phone ? `${t.fieldPhone.replace(' *', '')}: ${membershipFormData.phone}` : '',
+      !isSupporter && membershipFormData.rmeNumber ? `${t.joinAsta.fieldRmeNumber}: ${membershipFormData.rmeNumber}` : '',
+      membershipFormData.notes ? `${t.fieldNotes}: ${membershipFormData.notes}` : ''
+    ].filter(Boolean);
+
+    return `mailto:${ORG_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+  };
+
+  const handleMembershipSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailtoUrl = buildMembershipMailto();
+    setMembershipSubmitted(true);
+    const link = document.createElement('a');
+    link.href = mailtoUrl;
+    link.click();
   };
 
   return (
@@ -697,6 +741,91 @@ export default function App() {
         </div>
       </section>
 
+      {/* ENTRA IN ASTA SECTION */}
+      <section id="entra-in-asta" aria-labelledby="entra-in-asta-heading" className="py-20 px-6 lg:px-12 bg-[#F0F4EE]">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#334E3B]">
+              {t.joinAsta.tag}
+            </p>
+            <h2 id="entra-in-asta-heading" className="text-3xl sm:text-4xl font-serif font-bold text-[#2C3531]">
+              {t.joinAsta.title}
+            </h2>
+            <p className="text-[#2C3531]/75 leading-relaxed">
+              {t.joinAsta.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1 – Terapisti complementari TA RME */}
+            <div className="bg-white rounded-2xl p-8 sm:p-10 border border-[#334E3B]/10 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-8">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#334E3B] text-white flex items-center justify-center shrink-0">
+                    <Users className="w-6 h-6" />
+                  </div>
+                  <span className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-md bg-[#334E3B]/10 text-[#334E3B]">
+                    {t.joinAsta.therapistBadge}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-serif font-bold text-[#2C3531]">
+                  {t.joinAsta.therapistTitle}
+                </h3>
+
+                <p className="text-sm sm:text-base text-[#2C3531]/80 leading-relaxed">
+                  {t.joinAsta.therapistDesc}
+                </p>
+              </div>
+
+              <div>
+                <button
+                  type="button"
+                  onClick={() => openMembershipModal('active')}
+                  className="w-full sm:w-auto px-7 py-3.5 bg-[#334E3B] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#25392a] transition-colors shadow-sm inline-flex items-center justify-center gap-2 group cursor-pointer"
+                >
+                  <span>{t.joinAsta.therapistCta}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+
+            {/* Card 2 – Soci sostenitori */}
+            <div className="bg-white rounded-2xl p-8 sm:p-10 border border-[#334E3B]/15 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between space-y-8">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#D4A373]/20 text-[#334E3B] flex items-center justify-center shrink-0">
+                    <Heart className="w-6 h-6 text-[#334E3B]" />
+                  </div>
+                  <span className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-md bg-[#D4A373]/20 text-[#2C3531]">
+                    {t.joinAsta.supporterBadge}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-serif font-bold text-[#2C3531]">
+                  {t.joinAsta.supporterTitle}
+                </h3>
+
+                <p className="text-sm sm:text-base text-[#2C3531]/80 leading-relaxed">
+                  {t.joinAsta.supporterDesc}
+                </p>
+              </div>
+
+              <div>
+                <button
+                  type="button"
+                  onClick={() => openMembershipModal('supporter')}
+                  className="w-full sm:w-auto px-7 py-3.5 bg-white border-2 border-[#334E3B] text-[#334E3B] text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#334E3B] hover:text-white transition-colors shadow-sm inline-flex items-center justify-center gap-2 group cursor-pointer"
+                >
+                  <span>{t.joinAsta.supporterCta}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ SECTION */}
       <section id="faq" className="py-20 px-6 lg:px-12 bg-white">
         <div className="max-w-4xl mx-auto space-y-12">
@@ -974,6 +1103,226 @@ export default function App() {
               </form>
             )}
 
+          </div>
+        </div>
+      )}
+
+      {/* MEMBERSHIP MODAL ("Entra in ASTA") */}
+      {membershipModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl relative border border-[#334E3B]/10 max-h-[90vh] overflow-y-auto">
+            <button
+              type="button"
+              onClick={() => {
+                setMembershipModalOpen(false);
+                setMembershipSubmitted(false);
+              }}
+              aria-label={t.closeBtn}
+              className="absolute top-5 right-5 p-2 rounded-full text-[#2C3531]/60 hover:text-[#2C3531] hover:bg-[#F8FAF6] transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {membershipSubmitted ? (
+              <div className="py-10 text-center space-y-5">
+                <div className="w-16 h-16 bg-[#334E3B]/10 text-[#334E3B] rounded-full flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-serif font-bold text-[#2C3531]">{t.joinAsta.successTitle}</h3>
+                  <p className="text-sm text-[#2C3531]/75 max-w-sm mx-auto">
+                    {t.joinAsta.successDesc}{' '}
+                    <a href={`mailto:${ORG_EMAIL}`} className="text-[#334E3B] font-semibold underline">
+                      {ORG_EMAIL}
+                    </a>
+                    .
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+                  <a
+                    href={buildMembershipMailto()}
+                    className="px-6 py-3 bg-[#334E3B] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#25392a] transition-colors shadow-sm inline-flex items-center justify-center gap-2"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>{t.joinAsta.mailtoButton}</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMembershipSubmitted(false);
+                      setMembershipModalOpen(false);
+                      setMembershipFormData({ nameOrg: '', email: '', phone: '', rmeNumber: '', notes: '' });
+                      setMembershipConsentChecked(false);
+                    }}
+                    className="px-6 py-3 bg-[#F8FAF6] border border-[#334E3B]/20 text-[#2C3531] text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#334E3B]/5 transition-colors cursor-pointer"
+                  >
+                    {t.closeBtn}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleMembershipSubmit} className="space-y-5">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#334E3B]">{t.joinAsta.modalTag}</p>
+                  <h3 className="text-2xl font-serif font-bold text-[#2C3531] mt-1">
+                    {t.joinAsta.modalTitle}
+                  </h3>
+                  <p className="text-xs text-[#2C3531]/70 mt-1">
+                    {t.joinAsta.modalRecipientLabel}{' '}
+                    <a href={`mailto:${ORG_EMAIL}`} className="text-[#334E3B] font-semibold underline">
+                      {ORG_EMAIL}
+                    </a>
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-[#2C3531] mb-2">
+                      {t.joinAsta.fieldType}
+                    </label>
+                    <div className="grid grid-cols-1 gap-2.5">
+                      <label
+                        className={`flex items-center gap-3 p-3.5 rounded-xl border text-sm cursor-pointer transition-all ${
+                          membershipType === 'active'
+                            ? 'border-[#334E3B] bg-[#334E3B]/5 text-[#2C3531] font-semibold'
+                            : 'border-[#334E3B]/20 bg-[#F8FAF6] text-[#2C3531]/80 hover:border-[#334E3B]/40'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="membershipType"
+                          value="active"
+                          checked={membershipType === 'active'}
+                          onChange={() => setMembershipType('active')}
+                          className="w-4 h-4 accent-[#334E3B] cursor-pointer shrink-0"
+                        />
+                        <span>{t.joinAsta.typeActive}</span>
+                      </label>
+
+                      <label
+                        className={`flex items-center gap-3 p-3.5 rounded-xl border text-sm cursor-pointer transition-all ${
+                          membershipType === 'supporter'
+                            ? 'border-[#334E3B] bg-[#334E3B]/5 text-[#2C3531] font-semibold'
+                            : 'border-[#334E3B]/20 bg-[#F8FAF6] text-[#2C3531]/80 hover:border-[#334E3B]/40'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="membershipType"
+                          value="supporter"
+                          checked={membershipType === 'supporter'}
+                          onChange={() => setMembershipType('supporter')}
+                          className="w-4 h-4 accent-[#334E3B] cursor-pointer shrink-0"
+                        />
+                        <span>{t.joinAsta.typeSupporter}</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#2C3531] mb-1">
+                      {t.joinAsta.fieldNameOrg}
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder={t.joinAsta.fieldNameOrgPlaceholder}
+                      value={membershipFormData.nameOrg}
+                      onChange={(e) => setMembershipFormData({ ...membershipFormData, nameOrg: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-[#334E3B]/20 text-sm focus:outline-none focus:border-[#334E3B] bg-[#F8FAF6]"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-[#2C3531] mb-1">{t.fieldEmail}</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="tu@email.ch"
+                        value={membershipFormData.email}
+                        onChange={(e) => setMembershipFormData({ ...membershipFormData, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#334E3B]/20 text-sm focus:outline-none focus:border-[#334E3B] bg-[#F8FAF6]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-[#2C3531] mb-1">
+                        {t.fieldPhone.replace(' *', '')}
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="+41 79 000 00 00"
+                        value={membershipFormData.phone}
+                        onChange={(e) => setMembershipFormData({ ...membershipFormData, phone: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#334E3B]/20 text-sm focus:outline-none focus:border-[#334E3B] bg-[#F8FAF6]"
+                      />
+                    </div>
+                  </div>
+
+                  {membershipType === 'active' && (
+                    <div>
+                      <label className="block text-xs font-semibold text-[#2C3531] mb-1">
+                        {t.joinAsta.fieldRmeNumber}
+                      </label>
+                      <input
+                        type="text"
+                        placeholder={t.joinAsta.fieldRmePlaceholder}
+                        value={membershipFormData.rmeNumber}
+                        onChange={(e) => setMembershipFormData({ ...membershipFormData, rmeNumber: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-[#334E3B]/20 text-sm focus:outline-none focus:border-[#334E3B] bg-[#F8FAF6]"
+                      />
+                    </div>
+                  )}
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#2C3531] mb-1">{t.fieldNotes}</label>
+                    <textarea
+                      rows={3}
+                      placeholder={
+                        membershipType === 'supporter'
+                          ? t.joinAsta.fieldNotesPlaceholderSupporter
+                          : t.joinAsta.fieldNotesPlaceholderActive
+                      }
+                      value={membershipFormData.notes}
+                      onChange={(e) => setMembershipFormData({ ...membershipFormData, notes: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-[#334E3B]/20 text-sm focus:outline-none focus:border-[#334E3B] bg-[#F8FAF6]"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-1">
+                    <input
+                      type="checkbox"
+                      id="membershipPrivacyConsent"
+                      required
+                      checked={membershipConsentChecked}
+                      onChange={(e) => setMembershipConsentChecked(e.target.checked)}
+                      className="mt-1 w-4 h-4 rounded text-[#334E3B] focus:ring-[#334E3B] border-[#334E3B]/30 cursor-pointer shrink-0"
+                    />
+                    <label htmlFor="membershipPrivacyConsent" className="text-xs text-[#2C3531]/80 leading-relaxed cursor-pointer">
+                      {t.fieldConsent}{' '}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMembershipModalOpen(false);
+                          setPrivacyModalOpen(true);
+                        }}
+                        className="text-[#334E3B] underline font-semibold hover:text-[#25392a]"
+                      >
+                        Informativa sulla Privacy (nLPD / GDPR)
+                      </button>
+                      . *
+                    </label>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 bg-[#334E3B] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#25392a] transition-colors shadow-md cursor-pointer"
+                >
+                  {t.joinAsta.submitButton}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       )}
