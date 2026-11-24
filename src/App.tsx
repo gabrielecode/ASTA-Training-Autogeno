@@ -17,7 +17,6 @@ import {
 import { AstaBrand } from './components/AstaLogo';
 import { MobileDrawer } from './components/MobileDrawer';
 import { MobileBottomBar } from './components/MobileBottomBar';
-import { TouchSlider } from './components/TouchSlider';
 
 import heroRelaxationImg from "@/src/assets/images/hero_relaxation_ticino_1795508349821.jpg";
 import heroRelaxation640Webp from "@/src/assets/images/hero_relaxation_ticino_640.webp";
@@ -508,15 +507,11 @@ export default function App() {
             </p>
           </div>
 
-          <TouchSlider
-            itemCount={methodCards.length}
-            desktopGridClassName="md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8"
-            ariaLabel={t.methodTitle}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {methodCards.map((card) => (
               <div
                 key={card.num}
-                className="w-[80vw] sm:w-[62vw] md:w-auto shrink-0 snap-start p-6 sm:p-8 rounded-2xl bg-[#F8FAF6] border border-[#334E3B]/10 hover:shadow-lg transition-shadow space-y-3.5 sm:space-y-4"
+                className="p-6 sm:p-8 rounded-2xl bg-[#F8FAF6] border border-[#334E3B]/10 hover:shadow-lg transition-shadow space-y-3.5 sm:space-y-4"
               >
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#334E3B] text-white flex items-center justify-center font-serif text-lg sm:text-xl font-bold tabular-nums">
                   {card.num}
@@ -527,7 +522,7 @@ export default function App() {
                 </p>
               </div>
             ))}
-          </TouchSlider>
+          </div>
 
         </div>
       </section>
@@ -549,15 +544,11 @@ export default function App() {
             </p>
           </div>
 
-          <TouchSlider
-            itemCount={journeyCards.length}
-            desktopGridClassName="md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8"
-            ariaLabel={t.journeyTitle}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {journeyCards.map((step) => (
               <div
                 key={step.num}
-                className="w-[80vw] sm:w-[62vw] md:w-auto shrink-0 snap-start bg-[#F8FAF6] rounded-2xl rounded-tr-3xl p-6 sm:p-8 border border-[#334E3B]/10 hover:shadow-lg transition-shadow flex flex-col justify-between space-y-5 group"
+                className="bg-[#F8FAF6] rounded-2xl rounded-tr-3xl p-6 sm:p-8 border border-[#334E3B]/10 hover:shadow-lg transition-shadow flex flex-col justify-between space-y-5 group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -577,7 +568,7 @@ export default function App() {
                 </div>
               </div>
             ))}
-          </TouchSlider>
+          </div>
 
         </div>
       </section>
@@ -629,15 +620,11 @@ export default function App() {
             </div>
           </div>
 
-          <TouchSlider
-            itemCount={filteredTherapists.length}
-            desktopGridClassName="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8"
-            ariaLabel={t.therapistsTitle}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {filteredTherapists.map((tItem) => (
               <div
                 key={tItem.id}
-                className="w-[84vw] sm:w-[65vw] md:w-auto shrink-0 snap-start bg-[#F8FAF6] rounded-2xl overflow-hidden border border-[#334E3B]/10 flex flex-col justify-between hover:shadow-xl transition-shadow group"
+                className="bg-[#F8FAF6] rounded-2xl overflow-hidden border border-[#334E3B]/10 flex flex-col justify-between hover:shadow-xl transition-shadow group"
               >
                 <div>
                   <div className="relative h-48 overflow-hidden bg-[#F0F4EE]">
@@ -645,7 +632,7 @@ export default function App() {
                       <source
                         type="image/webp"
                         srcSet={tItem.webpSrcSet}
-                        sizes="(max-width: 767px) 84vw, (max-width: 1023px) 48vw, 31vw"
+                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 48vw, 31vw"
                       />
                       <img
                         src={tItem.image}
@@ -697,7 +684,7 @@ export default function App() {
                 </div>
               </div>
             ))}
-          </TouchSlider>
+          </div>
 
         </div>
       </section>
