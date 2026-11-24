@@ -116,6 +116,10 @@ export const TRANSLATIONS: Record<Lang, {
   faq3A: string;
   faq4Q: string;
   faq4A: string;
+  faq5Q: string;
+  faq5A: string;
+  faq6Q: string;
+  faq6A: string;
   asta: {
     title: string;
     intro: string;
@@ -230,6 +234,10 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Conviene parlarne con il proprio medico e con la terapista prima di iniziare.",
     faq4Q: "Dove si tengono le sedute?",
     faq4A: "Le nostre terapiste ricevono nelle sedi di Lugano, Gordevio (Valle Maggia) e Preonzo (Bellinzonese), oltre alle sedute online in videoconferenza.",
+    faq5Q: "Quali sono le controindicazioni?",
+    faq5A: "Il Training Autogeno è generalmente sicuro, ma è sconsigliato in presenza di gravi disturbi psichiatrici acuti o cardiopatie scompensate senza previo parere medico.",
+    faq6Q: "Posso partecipare in gruppo?",
+    faq6A: "Sì, offriamo cicli di apprendimento in piccoli gruppi, ideali per chi cerca uno scambio esperienziale oltre alla tecnica individuale.",
     asta: {
       title: "ASTA: chi siamo",
       intro: "L'Associazione Svizzera di Training Autogeno (ASTA) è nata nel 2026, con sede a Lugano, come associazione senza scopo di lucro. Riunisce i professionisti del Training Autogeno con l'obiettivo di promuoverne la corretta applicazione e di diffondere informazioni scientificamente fondate.",
@@ -353,6 +361,10 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Le Training Autogène est une méthode scientifiquement validée d'autorelaxation conçue par J.H. Schultz.",
     faq4Q: "Où se tiennent les séances ?",
     faq4A: "Nos thérapeutes reçoivent au siège central de Lugano Centre (Via Nassa 29) et proposent des séances en ligne.",
+    faq5Q: "Quelles sont les contre-indications ?",
+    faq5A: "Le Training Autogène est généralement sûr, mais il est déconseillé en cas de troubles psychiatriques aigus graves ou de cardiopathies décompensées sans avis médical préalable.",
+    faq6Q: "Puis-je participer en groupe ?",
+    faq6A: "Oui, nous proposons des cycles d'apprentissage en petits groupes, idéaux pour ceux qui recherchent un échange expérientiel en plus de la technique individuelle.",
     asta: {
       title: "ASTA : qui sommes-nous",
       intro: "L'Association Suisse de Training Autogène (ASTA) a été fondée en 2026, avec siège à Lugano, en tant qu'association à but non lucratif. Elle réunit les professionnels du Training Autogène dans le but d'en promouvoir l'application correcte et de diffuser des informations scientifiquement fondées.",
@@ -476,6 +488,10 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Autogenes Training ist eine wissenschaftlich validierte Methode der Selbstregulation nach J.H. Schultz.",
     faq4Q: "Wo finden die Sitzungen statt?",
     faq4A: "Unsere Therapeutinnen empfangen im Hauptsitz in Lugano Zentrum (Via Nassa 29) sowie online.",
+    faq5Q: "Welche Kontraindikationen gibt es?",
+    faq5A: "Autogenes Training ist im Allgemeinen sicher, wird jedoch bei schweren akuten psychiatrischen Erkrankungen oder dekompensierten Herzerkrankungen ohne vorherige ärztliche Abklärung nicht empfohlen.",
+    faq6Q: "Kann ich in einer Gruppe teilnehmen?",
+    faq6A: "Ja, wir bieten Lernzyklen in kleinen Gruppen an – ideal für alle, die neben der individuellen Technik den Erfahrungsaustausch suchen.",
     asta: {
       title: "ASTA: Über uns",
       intro: "Der Schweizerische Verband für Autogenes Training (ASTA) wurde 2026 mit Sitz in Lugano als gemeinnütziger Verein gegründet. Er vereint Fachpersonen des Autogenen Trainings mit dem Ziel, dessen korrekte Anwendung zu fördern und wissenschaftlich fundierte Informationen zu verbreiten.",
@@ -599,6 +615,10 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Autogenic Training is a scientifically validated self-relaxation method focused on codified organic exercises.",
     faq4Q: "Where do sessions take place?",
     faq4A: "Our therapists receive clients at our central office in Lugano Center (Via Nassa 29) and offer online video sessions.",
+    faq5Q: "What are the contraindications?",
+    faq5A: "Autogenic Training is generally safe, but it is not recommended in the presence of severe acute psychiatric disorders or decompensated heart conditions without prior medical advice.",
+    faq6Q: "Can I participate in a group?",
+    faq6A: "Yes, we offer learning cycles in small groups, ideal for those looking for shared experiential exchange alongside individual technique.",
     asta: {
       title: "ASTA: Who We Are",
       intro: "The Swiss Autogenic Training Association (ASTA) was founded in 2026, based in Lugano, as a non-profit association. It brings together Autogenic Training professionals with the aim of promoting its proper application and disseminating scientifically grounded information.",

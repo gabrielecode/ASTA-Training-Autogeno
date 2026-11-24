@@ -745,6 +745,36 @@ export default function App() {
               )}
             </div>
 
+            <div className="border border-[#334E3B]/10 rounded-2xl overflow-hidden bg-[#F8FAF6]">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 4 ? null : 4)}
+                className="w-full px-6 py-5 text-left font-semibold flex justify-between items-center gap-4 text-[#2C3531]"
+              >
+                <span>{t.faq5Q}</span>
+                <ChevronDown className={`w-5 h-5 text-[#334E3B] transition-transform ${openFaq === 4 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFaq === 4 && (
+                <div className="px-6 pb-5 text-sm text-[#2C3531]/80 leading-relaxed border-t border-[#334E3B]/10 pt-4">
+                  {t.faq5A}
+                </div>
+              )}
+            </div>
+
+            <div className="border border-[#334E3B]/10 rounded-2xl overflow-hidden bg-[#F8FAF6]">
+              <button 
+                onClick={() => setOpenFaq(openFaq === 5 ? null : 5)}
+                className="w-full px-6 py-5 text-left font-semibold flex justify-between items-center gap-4 text-[#2C3531]"
+              >
+                <span>{t.faq6Q}</span>
+                <ChevronDown className={`w-5 h-5 text-[#334E3B] transition-transform ${openFaq === 5 ? 'rotate-180' : ''}`} />
+              </button>
+              {openFaq === 5 && (
+                <div className="px-6 pb-5 text-sm text-[#2C3531]/80 leading-relaxed border-t border-[#334E3B]/10 pt-4">
+                  {t.faq6A}
+                </div>
+              )}
+            </div>
+
           </div>
 
         </div>
