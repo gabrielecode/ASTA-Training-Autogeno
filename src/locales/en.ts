@@ -141,6 +141,7 @@ const en: TranslationSchema = {
   footerLegal: "Legal Notice",
   footerPrivacy: "Data Protection",
   footerRme: "RME Accreditation",
+  footerCredit: "Crafted by Connect & Create | Want a professional website like this?",
   modalBookingTitle: "Session Booking",
   modalBookingSub: "Request initial consultation",
   modalSuccessTitle: "Request Sent Successfully!",

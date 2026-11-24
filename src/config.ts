@@ -165,6 +165,7 @@ export interface TranslationSchema {
   footerLegal: string;
   footerPrivacy: string;
   footerRme: string;
+  footerCredit: string;
   modalBookingTitle: string;
   modalBookingSub: string;
   modalSuccessTitle: string;
@@ -324,6 +325,7 @@ export const IT_TRANSLATIONS: TranslationSchema = {
   footerLegal: "Note Legali",
   footerPrivacy: "Protezione Dati",
   footerRme: "Accreditamento RME",
+  footerCredit: "Realizzato da Connect & Create | Vuoi un sito professionale come questo?",
   modalBookingTitle: "Prenotazione Colloquio",
   modalBookingSub: "Richiedi consulenza iniziale",
   modalSuccessTitle: "Richiesta Inviata con Successo!",

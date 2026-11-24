@@ -970,7 +970,31 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/60">
-          <p className="text-center sm:text-left">© {new Date().getFullYear()} {ORG_NAME} — {t.rightsText}</p>
+          <div className="text-center sm:text-left space-y-2.5">
+            <p>© {new Date().getFullYear()} {ORG_NAME} — {t.rightsText}</p>
+            {(() => {
+              const [creditBefore = '', creditAfter = ''] = t.footerCredit.split('Connect & Create');
+              return (
+                <div>
+                  <a
+                    href="https://sititicino.ch/?ref=asta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#222A26] hover:bg-[#1D2421] border border-[#D4A373]/30 hover:border-[#D4A373]/75 text-white/75 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_14px_rgba(212,163,115,0.16)] text-left"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-[#D4A373] group-hover:text-[#E8C19A] shrink-0 transition-colors duration-300" />
+                    <span className="leading-snug">
+                      {creditBefore}
+                      <strong className="font-bold text-[#D4A373] group-hover:text-[#E8C19A] transition-colors duration-300">
+                        Connect &amp; Create
+                      </strong>
+                      {creditAfter}
+                    </span>
+                  </a>
+                </div>
+              );
+            })()}
+          </div>
           <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
             <button
               type="button"
