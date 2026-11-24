@@ -64,6 +64,7 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem(LANG_STORAGE_KEY, lang);
     const meta = LANG_META[lang];
+    const currentT = TRANSLATIONS[lang];
     document.documentElement.lang = meta.htmlLang;
     document.title = meta.title;
     const descEl = document.querySelector('meta[name="description"]');
@@ -76,6 +77,30 @@ export default function App() {
     if (twTitleEl) twTitleEl.setAttribute('content', meta.title);
     const twDescEl = document.querySelector('meta[name="twitter:description"]');
     if (twDescEl) twDescEl.setAttribute('content', meta.description);
+
+    const faqJsonLdEl = document.getElementById('faq-jsonld');
+    if (faqJsonLdEl) {
+      const faqItems = [
+        { q: currentT.faq1Q, a: currentT.faq1A },
+        { q: currentT.faq2Q, a: currentT.faq2A },
+        { q: currentT.faq3Q, a: currentT.faq3A },
+        { q: currentT.faq4Q, a: currentT.faq4A },
+        { q: currentT.faq5Q, a: currentT.faq5A },
+        { q: currentT.faq6Q, a: currentT.faq6A },
+      ];
+      faqJsonLdEl.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.a,
+          },
+        })),
+      }, null, 2);
+    }
   }, [lang]);
 
   // FAQ Accordion State
