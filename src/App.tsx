@@ -17,6 +17,7 @@ import {
 import { AstaBrand } from './components/AstaLogo';
 import { MobileDrawer } from './components/MobileDrawer';
 import { MobileBottomBar } from './components/MobileBottomBar';
+import { MethodTimeline } from './components/MethodTimeline';
 
 import heroRelaxationImg from "@/src/assets/images/hero_relaxation_ticino_1795508349821.jpg";
 import heroRelaxation640Webp from "@/src/assets/images/hero_relaxation_ticino_640.webp";
@@ -507,22 +508,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {methodCards.map((card) => (
-              <div
-                key={card.num}
-                className="p-6 sm:p-8 rounded-2xl bg-[#F8FAF6] border border-[#334E3B]/10 hover:shadow-lg transition-shadow space-y-3.5 sm:space-y-4"
-              >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#334E3B] text-white flex items-center justify-center font-serif text-lg sm:text-xl font-bold tabular-nums">
-                  {card.num}
-                </div>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-[#2C3531]">{card.title}</h3>
-                <p className="text-sm text-[#2C3531]/75 leading-relaxed">
-                  {card.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          <MethodTimeline cards={methodCards} />
 
         </div>
       </section>
