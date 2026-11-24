@@ -13,63 +13,28 @@ export interface AstaLogoProps {
 }
 
 export function AstaLogo({
-  size = 40,
+  size = 44,
   className = "",
   variant = "dark",
-  title,
+  title = "Logo ASTA",
 }: AstaLogoProps) {
-  const color = variant === "dark" ? "#334E3B" : "#F9F2EC";
-  const accentColor = variant === "dark" ? "#D4A373" : "#D48482";
+  const borderClass =
+    variant === "dark"
+      ? "border-[#334E3B]/15 shadow-sm"
+      : "border-white/20 shadow-md";
 
   return (
-    <svg
-      role={title ? "img" : undefined}
-      aria-label={title}
-      aria-hidden={title ? undefined : true}
-      width={size}
-      height={size}
-      viewBox="0 0 64 64"
-      className={className}
-      style={{ color }}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      style={{ width: size, height: size }}
+      className={`rounded-xl overflow-hidden bg-[#F8F6EE] border ${borderClass} shrink-0 flex items-center justify-center ${className}`}
     >
-      {title && <title>{title}</title>}
-      {/* Outer circular arc */}
-      <path
-        d="M32 6C17.64 6 6 17.64 6 32c0 10.5 6.2 19.5 15.1 23.6"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        opacity="0.85"
+      <img
+        src="/assets/aistudio/logo_asta_trainig_5603fac5.jpeg"
+        alt={title}
+        className="w-full h-full object-contain"
+        referrerPolicy="no-referrer"
       />
-      {/* Inner spiral */}
-      <path
-        d="M36 34c-2.2 0-4-1.8-4-4 0-2.2 2-4 4.5-4 3 0 5.5 2.5 5.5 5.5 0 4-3.5 7-7.5 7-5 0-9-4-9-9 0-6 5-11 11-11 7.5 0 13.5 6 13.5 13.5"
-        stroke={accentColor}
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      {/* Leaf on the right */}
-      <path
-        d="M39 55C39 55 45 47 45 35C45 25 39 18 39 18C39 18 47 25 47 36C47 47 39 55 39 55Z"
-        fill="currentColor"
-        opacity="0.92"
-      />
-      {/* Leaf internal veins */}
-      <path
-        d="M42 47c1-2 2-5 3-9M41 40c1.5-1.5 3-4 4-7M42 33c1-1 2-3 3-5"
-        stroke={variant === "dark" ? "#F8FAF6" : "#2C3531"}
-        strokeWidth="1"
-        strokeLinecap="round"
-        opacity="0.6"
-      />
-      {/* 4-pointed Star in upper right */}
-      <path
-        d="M47 16c0 2.5 2 4.5 4.5 4.5C49 20.5 49 22.5 49 25c0-2.5-2-4.5-4.5-4.5C47 20.5 47 18.5 47 16z"
-        fill={accentColor}
-      />
-    </svg>
+    </div>
   );
 }
 
@@ -82,7 +47,7 @@ export interface AstaBrandProps {
 }
 
 export function AstaBrand({
-  size = 38,
+  size = 44,
   variant = "dark",
   subtitleText,
   className = "",
@@ -93,7 +58,7 @@ export function AstaBrand({
 
   return (
     <a href={href} className={`flex items-center gap-3 group text-left ${className}`}>
-      <AstaLogo size={size} variant={variant} />
+      <AstaLogo size={size} variant={variant} title="ASTA - Associazione Svizzera Training Autogeno" />
       <div className="flex flex-col">
         <span className={`text-xl font-bold font-serif tracking-tight leading-tight ${textColor}`}>
           ASTA

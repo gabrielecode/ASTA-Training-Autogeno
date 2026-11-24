@@ -13,7 +13,6 @@ import { ORG_EMAIL, ORG_NAME, ORG_SEDE, ORG_PHONE, LANGS, Lang, LANG_META, DEFAU
 import { AstaBrand } from './components/AstaLogo';
 import heroRelaxationImg from "@/src/assets/images/hero_relaxation_ticino_1795508349821.jpg";
 import therapistSessionImg from "@/src/assets/images/therapist_session_1795508349967.jpg";
-import logoAstaImg from "@/src/assets/images/logo-asta.jpg";
 
 interface Therapist {
   id: string;
