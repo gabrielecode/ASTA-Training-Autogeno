@@ -45,6 +45,7 @@ export const TRANSLATIONS: Record<Lang, {
   navTerapiste: string;
   navRimborso: string;
   navFaq: string;
+  navAbout: string;
   ctaBook: string;
   heroBadge: string;
   heroTitle: string;
@@ -115,6 +116,12 @@ export const TRANSLATIONS: Record<Lang, {
   faq3A: string;
   faq4Q: string;
   faq4A: string;
+  asta: {
+    title: string;
+    intro: string;
+    goalsTitle: string;
+    goals: readonly string[];
+  };
   footerDesc: string;
   footerSedeTitle: string;
   footerContactTitle: string;
@@ -152,10 +159,11 @@ export const TRANSLATIONS: Record<Lang, {
     navTerapiste: "Terapiste RME",
     navRimborso: "Cassa Malati",
     navFaq: "FAQ",
+    navAbout: "Chi siamo",
     ctaBook: "Prenota Colloquio",
-    heroBadge: "Sede Unica a Lugano • Riconosciuto RME & ASCA",
-    heroTitle: "Training Autogeno a Lugano per ritrovare equilibrio e serenità",
-    heroSubtitle: "Affidati a terapiste qualificate nella nostra sede di Lugano e online in tutta la Svizzera. Un metodo scientificamente provato per ridurre ansia, migliorare la qualità del sonno e rigenerare corpo e mente con rimborso cassa malati complementare.",
+    heroBadge: "Sede Legale a Lugano • Riconosciuto RME & ASCA",
+    heroTitle: "Training Autogeno: impara a ritrovare la calma, da solo.",
+    heroSubtitle: "Un metodo scientificamente fondato di autodistensione, per il benessere di mente e corpo.",
     heroCtaPrimary: "Prenota una consulenza",
     heroCtaSecondary: "Cerca Terapista RME",
     statRme: "100%",
@@ -169,8 +177,8 @@ export const TRANSLATIONS: Record<Lang, {
     rmeBadgeText: "Standard RME & ASCA",
     rmeBadgeSub: "Standard qualitativi svizzeri rigorosi",
     methodTag: "Il Metodo Scientifico",
-    methodTitle: "Cos'è il Training Autogeno e come trasforma il tuo benessere",
-    methodDesc: "Sviluppato dal neurologo e psichiatra Johannes Heinrich Schultz, il Training Autogeno è una tecnica di autorilassamento basata su concentrazione passiva. Permette di modificare volontariamente lo stato di tensione psicofisica.",
+    methodTitle: "Cos'è il Training Autogeno",
+    methodDesc: "Il Training Autogeno (TA) è un metodo di autodistensione da concentrazione psichica, ideato dallo psichiatra Johannes Heinrich Schultz (1884-1970). Attraverso un allenamento (training) costante, permette di raggiungere uno stato di calma e rilassamento che si genera da sé (autogeno). È un metodo semplice e non invasivo per distendersi, ristabilire l'equilibrio psicosomatico e ritrovare l'armonia tra mente e corpo, agendo a livello fisico, psicologico e fisiologico.",
     method1Title: "Pesantezza Corporea",
     method1Desc: "Il primo esercizio induce un gradevole senso di rilassamento muscolare profondo, sciogliendo contratture e rigidità da stress.",
     method2Title: "Calore Distensivo",
@@ -191,22 +199,22 @@ export const TRANSLATIONS: Record<Lang, {
     step4Title: "Piena autonomia",
     step4Desc: "Applichi la tecnica in indipendenza nei momenti di tensione lavorativa o personale.",
     therapistsTag: "Rete Ufficiale ASTA Ticino",
-    therapistsTitle: "Terapiste RME riconosciute a Lugano e in Svizzera",
+    therapistsTitle: "Terapiste RME riconosciute RME",
     therapistsSubtitle: "Visita la nostra sede centrale a Lugano o prenota una seduta online in videoconferenza con professioniste accreditate dalle casse malati.",
     filterAll: "Tutti i Centri",
     filterLugano: "Lugano Centro",
     filterOnline: "Online / Svizzera",
     bookButton: "Prenota con",
     reimburseTag: "Copertura Assicurativa",
-    reimburseTitle: "Rimborso Cassa Malati Complementare in Svizzera",
-    reimburseP1: "Tutte le terapiste della rete ASTA sono riconosciute dal RME (Registro Medicina Empirica) e da ASCA, enti di controllo svizzeri per le terapie complementari.",
+    reimburseTitle: "Riconoscimento e rimborso",
+    reimburseP1: "Il Training Autogeno è un metodo di medicina complementare riconosciuto dal registro RME, e le sedute possono essere rimborsate dalle casse malati complementari che lo prevedono.",
     reimburseP2: "Questo garantisce il rimborso parziale (solitamente dal 70% al 90% del costo della seduta) tramite la propria assicurazione malattie complementare (es. Helsana, Sanitas, Swica, CSS, Concordia, Visana).",
     reimburseCheck1: "Verifica preventiva consigliata con la tua cassa malati per la polizza complementare specifica.",
     reimburseCheck2: "Fattura dettagliata rilasciata a fine seduta pronta per il rimborso online.",
     reimburseCheck3: "Nessuna prescrizione medica obbligatoria per la maggior parte delle casse malati.",
     reimburseStepsTitle: "Come richiedere il rimborso",
     reimburseStep1Title: "Prenota la tua seduta",
-    reimburseStep1Desc: "Scegli una terapista RME certificata ASTA a Lugano o online.",
+    reimburseStep1Desc: "Scegli una terapista RME certificata ASTA a Lugano, Gordevio, Preonzo o online.",
     reimburseStep2Title: "Ricevi la fattura RME",
     reimburseStep2Desc: "A fine trattamento riceverai la nota d'onorario con numero RME e ZSR.",
     reimburseStep3Title: "Invia alla cassa malati",
@@ -214,15 +222,30 @@ export const TRANSLATIONS: Record<Lang, {
     reimburseCta: "Verifica disponibilità terapiste",
     faqTag: "Domande Frequenti",
     faqTitle: "Tutto quello che c'è da sapere sul Training Autogeno",
-    faq1Q: "Il Training Autogeno è rimborsato dalla cassa malati in Svizzera?",
-    faq1A: "Sì. Tutte le terapiste della nostra sede ASTA a Lugano sono riconosciute RME (Registro Medicina Empirica) e ASCA. Questo significa che i trattamenti di Training Autogeno sono rimborsati dalla maggior parte delle assicurazioni malattia complementari.",
-    faq2Q: "Quanto dura un ciclo completo di Training Autogeno?",
-    faq2A: "Un ciclo standard si compone di 7 a 10 sedute individuali (o di piccolo gruppo), solitamente a cadenza settimanale. Già dopo le prime 3-4 sedute si avvertono benefici tangibili sulla qualità del sonno e sulla gestione dello stress quotidiano.",
-    faq3Q: "Qual è la differenza tra Training Autogeno e meditazione?",
-    faq3A: "Il Training Autogeno è un metodo scientificamente validato di autorilassamento focalizzato su esercizi organici codificati (pesantezza, calore, cuore, respiro), ideato dal neurologo J.H. Schultz. È strutturato, rapido da apprendere e produce modificazioni fisiologiche misurabili.",
+    faq1Q: "Quanto tempo richiede l'esercizio quotidiano?",
+    faq1A: "Bastano pochi minuti, più volte al giorno, per esercitare la tecnica a casa e consolidare lo stato di calma.",
+    faq2Q: "Serve un invio medico per il rimborso?",
+    faq2A: "Da verificare con la propria cassa malati complementare, sebbene molte polizze non lo richiedano.",
+    faq3Q: "Posso praticarlo se prendo farmaci o ho una patologia?",
+    faq3A: "Conviene parlarne con il proprio medico e con la terapista prima di iniziare.",
     faq4Q: "Dove si tengono le sedute?",
-    faq4A: "Le nostre terapiste ricevono nella sede centrale di Lugano Centro (Via Nassa 29) e sono disponibili sedute online in videoconferenza per chi risiede in altre zone della Svizzera.",
-    footerDesc: "Associazione professionale di terapiste qualificate in Training Autogeno. Sede centrale a Lugano e riconoscimento RME & ASCA per il rimborso cassa malati in tutta la Svizzera.",
+    faq4A: "Le nostre terapiste ricevono nelle sedi di Lugano, Gordevio (Valle Maggia) e Preonzo (Bellinzonese), oltre alle sedute online in videoconferenza.",
+    asta: {
+      title: "ASTA: chi siamo",
+      intro: "L'Associazione Svizzera di Training Autogeno (ASTA) è nata nel 2026, con sede a Lugano, come associazione senza scopo di lucro. Riunisce i professionisti del Training Autogeno con l'obiettivo di promuoverne la corretta applicazione e di diffondere informazioni scientificamente fondate.",
+      goalsTitle: "I nostri scopi",
+      goals: [
+        "Divulgare il Training Autogeno, la sua corretta applicazione e i suoi benefici psicofisici.",
+        "Promuovere seminari, eventi e pubblicazioni, per i membri e per il pubblico.",
+        "Favorire lo scambio professionale con spazi di confronto e intervisione tra professionisti, nel rispetto di riservatezza e deontologia.",
+        "Sostenere la supervisione, individuale e di gruppo, per garantire un'applicazione di alta qualità.",
+        "Definire standard ed etica condivisi in Ticino e in Svizzera, a tutela di chi pratica e di chi ne beneficia.",
+        "Collaborare con istituzioni, enti sanitari, assicuratori e reti professionali per il riconoscimento del TA nella prevenzione e nel benessere complementare.",
+        "Dialogare con i registri e le casse malati (RME/EMR, ASCA, SNE/EGK), per mantenere i requisiti di riconoscimento.",
+        "Rispondere ai bisogni della comunità con strumenti non invasivi e sicuri per la gestione di stress e tensioni."
+      ] as const
+    },
+    footerDesc: "L'Associazione Svizzera di Training Autogeno (ASTA) è nata nel 2026, con sede a Lugano, come associazione senza scopo di lucro. Riunisce i professionisti del Training Autogeno con l'obiettivo di promuoverne la corretta applicazione e di diffondere informazioni scientificamente fondate.",
     footerSedeTitle: "Sede Centrale",
     footerContactTitle: "Contatti & Info",
     footerHours: "Lun - Ven: 08:30 - 18:30",
@@ -259,6 +282,7 @@ export const TRANSLATIONS: Record<Lang, {
     navTerapiste: "Thérapeutes RME",
     navRimborso: "Assurance Maladie",
     navFaq: "FAQ",
+    navAbout: "À propos",
     ctaBook: "Réserver",
     heroBadge: "Siège Unique à Lugano • Reconnu RME & ASCA",
     heroTitle: "Training Autogène à Lugano pour retrouver équilibre et sérénité",
@@ -329,6 +353,21 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Le Training Autogène est une méthode scientifiquement validée d'autorelaxation conçue par J.H. Schultz.",
     faq4Q: "Où se tiennent les séances ?",
     faq4A: "Nos thérapeutes reçoivent au siège central de Lugano Centre (Via Nassa 29) et proposent des séances en ligne.",
+    asta: {
+      title: "ASTA : qui sommes-nous",
+      intro: "L'Association Suisse de Training Autogène (ASTA) a été fondée en 2026, avec siège à Lugano, en tant qu'association à but non lucratif. Elle réunit les professionnels du Training Autogène dans le but d'en promouvoir l'application correcte et de diffuser des informations scientifiquement fondées.",
+      goalsTitle: "Nos buts",
+      goals: [
+        "Diffuser le Training Autogène, son application correcte et ses bienfaits psychophysiques.",
+        "Promouvoir des séminaires, des événements et des publications pour les membres et le public.",
+        "Favoriser l'échange professionnel avec des espaces de dialogue et d'intervision entre professionnels, dans le respect de la confidentialité et de la déontologie.",
+        "Soutenir la supervision, individuelle et de groupe, afin de garantir une application de haute qualité.",
+        "Définir des standards et une éthique partagés au Tessin et en Suisse, pour la protection des praticiens et des bénéficiaires.",
+        "Collaborer avec les institutions, les organismes de santé, les assureurs et les réseaux professionnels pour la reconnaissance du TA dans la prévention et le bien-être complémentaire.",
+        "Dialoguer avec les registres et les caisses-maladie (RME/EMR, ASCA, SNE/EGK) afin de maintenir les exigences de reconnaissance.",
+        "Répondre aux besoins de la communauté avec des outils non invasifs et sûrs pour la gestion du stress et des tensions."
+      ] as const
+    },
     footerDesc: "Association professionnelle de thérapeutes qualifiées en Training Autogène. Siège central à Lugano.",
     footerSedeTitle: "Siège Central",
     footerContactTitle: "Contacts & Info",
@@ -366,6 +405,7 @@ export const TRANSLATIONS: Record<Lang, {
     navTerapiste: "RME-Therapeutinnen",
     navRimborso: "Krankenkasse",
     navFaq: "FAQ",
+    navAbout: "Über uns",
     ctaBook: "Termin Buchen",
     heroBadge: "Einzelne Hauptsitz in Lugano • RME & ASCA anerkannt",
     heroTitle: "Autogenes Training in Lugano für innere Balance und Gelassenheit",
@@ -436,6 +476,21 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Autogenes Training ist eine wissenschaftlich validierte Methode der Selbstregulation nach J.H. Schultz.",
     faq4Q: "Wo finden die Sitzungen statt?",
     faq4A: "Unsere Therapeutinnen empfangen im Hauptsitz in Lugano Zentrum (Via Nassa 29) sowie online.",
+    asta: {
+      title: "ASTA: Über uns",
+      intro: "Der Schweizerische Verband für Autogenes Training (ASTA) wurde 2026 mit Sitz in Lugano als gemeinnütziger Verein gegründet. Er vereint Fachpersonen des Autogenen Trainings mit dem Ziel, dessen korrekte Anwendung zu fördern und wissenschaftlich fundierte Informationen zu verbreiten.",
+      goalsTitle: "Unsere Ziele",
+      goals: [
+        "Das Autogene Training, seine korrekte Anwendung und seine psychophysischen Vorteile bekannt machen.",
+        "Seminare, Veranstaltungen und Publikationen für Mitglieder und die Öffentlichkeit fördern.",
+        "Den fachlichen Austausch durch Räume für Dialog und Intervision unter Fachpersonen unter Wahrung von Vertraulichkeit und Berufsethik fördern.",
+        "Einzel- und Gruppensupervision unterstützen, um eine qualitativ hochwertige Anwendung zu gewährleisten.",
+        "Gemeinsame Standards und Ethikrichtlinien im Tessin und in der Schweiz zum Schutz von Praktizierenden und Klienten definieren.",
+        "Mit Institutionen, Gesundheitsorganisationen, Versicherern und Fachnetzwerken für die Anerkennung des AT in Prävention und komplementärem Wohlbefinden zusammenarbeiten.",
+        "Mit den Registern und Krankenkassen (EMR/RME, ASCA, SNE/EGK) im Dialog stehen, um die Anerkennungsvoraussetzungen zu sichern.",
+        "Auf die Bedürfnisse der Gemeinschaft mit nicht-invasiven und sicheren Methoden zur Bewältigung von Stress und Spannungen eingehen."
+      ] as const
+    },
     footerDesc: "Berufsverband qualifizierter Therapeutinnen für Autogenes Training. Hauptsitz in Lugano.",
     footerSedeTitle: "Hauptsitz",
     footerContactTitle: "Kontakt & Info",
@@ -473,6 +528,7 @@ export const TRANSLATIONS: Record<Lang, {
     navTerapiste: "RME Therapists",
     navRimborso: "Health Insurance",
     navFaq: "FAQ",
+    navAbout: "About us",
     ctaBook: "Book Session",
     heroBadge: "Single Office in Lugano • RME & ASCA Recognized",
     heroTitle: "Autogenic Training in Lugano for balance and inner peace",
@@ -543,6 +599,21 @@ export const TRANSLATIONS: Record<Lang, {
     faq3A: "Autogenic Training is a scientifically validated self-relaxation method focused on codified organic exercises.",
     faq4Q: "Where do sessions take place?",
     faq4A: "Our therapists receive clients at our central office in Lugano Center (Via Nassa 29) and offer online video sessions.",
+    asta: {
+      title: "ASTA: Who We Are",
+      intro: "The Swiss Autogenic Training Association (ASTA) was founded in 2026, based in Lugano, as a non-profit association. It brings together Autogenic Training professionals with the aim of promoting its proper application and disseminating scientifically grounded information.",
+      goalsTitle: "Our Purposes",
+      goals: [
+        "Promote Autogenic Training, its proper application, and its psychophysical benefits.",
+        "Organize and promote seminars, events, and publications for members and the general public.",
+        "Foster professional exchange with dedicated spaces for dialogue and peer intervision, respecting confidentiality and ethics.",
+        "Support individual and group supervision to ensure high-quality practice.",
+        "Define shared standards and ethics in Ticino and across Switzerland to protect both practitioners and clients.",
+        "Collaborate with institutions, healthcare bodies, insurers, and professional networks for the recognition of AT in prevention and complementary well-being.",
+        "Maintain dialogue with registries and health insurers (RME/EMR, ASCA, SNE/EGK) to uphold recognition requirements.",
+        "Meet community needs with safe, non-invasive tools for managing stress and tension."
+      ] as const
+    },
     footerDesc: "Professional association of qualified Autogenic Training therapists. Central office in Lugano and RME & ASCA recognition.",
     footerSedeTitle: "Central Office",
     footerContactTitle: "Contact & Info",

@@ -85,51 +85,39 @@ export default function App() {
   const therapists: Therapist[] = [
     {
       id: '1',
-      name: 'Dott.ssa Elena Rossi',
-      title: 'Terapeuta RME & Psicologa FSP',
-      location: 'Lugano Centro (Sede Centrale)',
-      region: 'lugano',
-      rmeNumber: 'RME #A-482910',
-      languages: ['Italiano', 'Tedesco', 'Inglese'],
-      experienceYears: 14,
-      specialization: 'Gestione ansia, disturbi del sonno e burnout professionale',
+      name: 'Cristina Bettini',
+      title: 'Terapista RME • Locarnese / Valle Maggia',
+      location: 'Gordevio',
+      region: 'online',
+      rmeNumber: 'RME #184920',
+      languages: ['Italiano'],
+      experienceYears: 12,
+      specialization: 'Training Autogeno, gestione dello stress e rilassamento nel Locarnese e Vallemaggia',
       image: therapistSessionImg
     },
     {
       id: '2',
-      name: 'Marco Bignasca',
-      title: 'Terapista Complementare RME & ASCA',
-      location: 'Lugano & Online CH',
-      region: 'online',
-      rmeNumber: 'RME #B-918234',
+      name: 'Francesca Betteni',
+      title: 'Terapista RME • Luganese',
+      location: 'Lugano',
+      region: 'lugano',
+      rmeNumber: 'RME #293841',
       languages: ['Italiano', 'Francese', 'Inglese'],
       experienceYears: 10,
-      specialization: 'Rilassamento profondo, gestione dello stress e psicosomatica',
+      specialization: 'Training Autogeno, equilibrio psicosomatico e benessere nel Luganese',
       image: heroRelaxationImg
     },
     {
       id: '3',
-      name: 'Dott.ssa Chiara Bernasconi',
-      title: 'Formatrice & Terapeuta Training Autogeno',
-      location: 'Lugano Centro',
-      region: 'lugano',
-      rmeNumber: 'RME #C-338192',
-      languages: ['Italiano', 'Tedesco'],
-      experienceYears: 12,
-      specialization: 'Preparazione al parto, atleti e superamento dei blocchi emotivi',
-      image: therapistSessionImg
-    },
-    {
-      id: '4',
-      name: 'Simona Cattaneo',
-      title: 'Terapeuta RME in Medicina Psicososmatica',
-      location: 'Lugano & Videoconferenza CH',
+      name: 'Tamara Ghisletta',
+      title: 'Terapista RME • Bellinzonese',
+      location: 'Preonzo',
       region: 'online',
-      rmeNumber: 'RME #D-771204',
-      languages: ['Italiano', 'Inglese', 'Francese', 'Deutsch'],
-      experienceYears: 8,
-      specialization: 'Terapia individuale e cicli di gruppo per la calma mentale',
-      image: heroRelaxationImg
+      rmeNumber: 'RME #382910',
+      languages: ['Italiano'],
+      experienceYears: 9,
+      specialization: 'Training Autogeno e percorsi di consapevolezza nel Bellinzonese',
+      image: therapistSessionImg
     }
   ];
 
@@ -160,6 +148,7 @@ export default function App() {
           <a href="#metodo" className="hover:text-[#334E3B] transition-colors whitespace-nowrap shrink-0">{t.navMetodo}</a>
           <a href="#audio-guide" className="hover:text-[#334E3B] transition-colors whitespace-nowrap shrink-0">{t.navAudio}</a>
           <a href="#terapiste" className="hover:text-[#334E3B] transition-colors whitespace-nowrap shrink-0">{t.navTerapiste}</a>
+          <a href="#chi-siamo" className="hover:text-[#334E3B] transition-colors whitespace-nowrap shrink-0">{t.navAbout}</a>
           <a href="#rimborso" className="hover:text-[#334E3B] transition-colors whitespace-nowrap shrink-0">{t.navRimborso}</a>
           <a href="#faq" className="hover:text-[#334E3B] transition-colors whitespace-nowrap shrink-0">{t.navFaq}</a>
         </nav>
@@ -205,6 +194,7 @@ export default function App() {
           <a href="#metodo" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-medium text-[#2C3531]">{t.navMetodo}</a>
           <a href="#audio-guide" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-medium text-[#2C3531]">{t.navAudio}</a>
           <a href="#terapiste" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-medium text-[#2C3531]">{t.navTerapiste}</a>
+          <a href="#chi-siamo" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-medium text-[#2C3531]">{t.navAbout}</a>
           <a href="#rimborso" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-medium text-[#2C3531]">{t.navRimborso}</a>
           <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="block py-2 font-medium text-[#2C3531]">{t.navFaq}</a>
           <button 
@@ -630,6 +620,54 @@ export default function App() {
             >
               {t.reimburseCta}
             </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ASTA: CHI SIAMO SECTION */}
+      <section id="chi-siamo" aria-labelledby="chi-siamo-heading" className="py-20 px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="relative max-w-3xl space-y-4">
+            <h2 id="chi-siamo-heading" className="text-3xl sm:text-4xl font-serif font-bold text-[#2C3531] relative">
+              <span className="absolute -top-10 left-0 text-7xl sm:text-8xl font-serif font-bold text-[#334E3B]/5 select-none pointer-events-none" aria-hidden="true">
+                Ticino
+              </span>
+              <span className="relative z-10">{t.asta.title}</span>
+            </h2>
+            <p className="text-[#2C3531]/80 leading-relaxed text-base sm:text-lg">
+              {t.asta.intro}
+            </p>
+          </div>
+
+          <div className="space-y-6 pt-4">
+            <h3 className="text-2xl font-serif font-bold text-[#2C3531]">
+              {t.asta.goalsTitle}
+            </h3>
+
+            <ol role="list" className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {t.asta.goals.map((goalText, idx) => {
+                const goalNum = String(idx + 1).padStart(2, '0');
+                return (
+                  <li key={idx} className="bg-[#F8FAF6] rounded-2xl p-6 border border-[#334E3B]/10 hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="font-serif font-bold text-sm text-[#334E3B] tracking-widest">
+                        {goalNum}
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-[#334E3B]/10 flex items-center justify-center text-[#D48482]">
+                        <svg className="w-4 h-4 text-[#D48482]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-sm md:text-base text-[#2D2424] leading-relaxed">
+                      {goalText}
+                    </p>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
 
         </div>
