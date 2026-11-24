@@ -11,6 +11,9 @@ import {
 } from 'lucide-react';
 import { ORG_EMAIL, ORG_NAME, ORG_SEDE, ORG_PHONE, LANGS, Lang, LANG_META, DEFAULT_LANG, LANG_STORAGE_KEY, TRANSLATIONS } from './config';
 import { AstaBrand } from './components/AstaLogo';
+import heroRelaxationImg from "@/src/assets/images/hero_relaxation_ticino_1795508349821.jpg";
+import therapistSessionImg from "@/src/assets/images/therapist_session_1795508349967.jpg";
+import logoAstaImg from "@/src/assets/images/logo-asta.jpg";
 
 interface Therapist {
   id: string;
@@ -90,7 +93,7 @@ export default function App() {
       languages: ['Italiano', 'Tedesco', 'Inglese'],
       experienceYears: 14,
       specialization: 'Gestione ansia, disturbi del sonno e burnout professionale',
-      image: '/src/assets/images/therapist_session_1795508349967.jpg'
+      image: therapistSessionImg
     },
     {
       id: '2',
@@ -102,7 +105,7 @@ export default function App() {
       languages: ['Italiano', 'Francese', 'Inglese'],
       experienceYears: 10,
       specialization: 'Rilassamento profondo, gestione dello stress e psicosomatica',
-      image: '/src/assets/images/hero_relaxation_ticino_1795508349821.jpg'
+      image: heroRelaxationImg
     },
     {
       id: '3',
@@ -114,7 +117,7 @@ export default function App() {
       languages: ['Italiano', 'Tedesco'],
       experienceYears: 12,
       specialization: 'Preparazione al parto, atleti e superamento dei blocchi emotivi',
-      image: '/src/assets/images/therapist_session_1795508349967.jpg'
+      image: therapistSessionImg
     },
     {
       id: '4',
@@ -126,7 +129,7 @@ export default function App() {
       languages: ['Italiano', 'Inglese', 'Francese', 'Deutsch'],
       experienceYears: 8,
       specialization: 'Terapia individuale e cicli di gruppo per la calma mentale',
-      image: '/src/assets/images/hero_relaxation_ticino_1795508349821.jpg'
+      image: heroRelaxationImg
     }
   ];
 
@@ -267,7 +270,7 @@ export default function App() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/60 bg-white">
               <img 
-                src="/src/assets/images/hero_relaxation_ticino_1795508349821.jpg" 
+                src={heroRelaxationImg} 
                 alt="Studio ASTA Lugano" 
                 className="w-full h-[460px] object-cover hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
