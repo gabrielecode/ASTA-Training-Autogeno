@@ -3,13 +3,101 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 4.5rem;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #F8FAF6;
     color: #2C3531;
+    overflow-x: clip;
   }
-  
+
   h1, h2, h3, h4, .font-serif {
     font-family: 'Lora', serif;
+  }
+
+  a, button, select, input, textarea, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Touch horizontal slider scrollbar suppression while preserving native inertia */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safe-area bottom padding for iOS/Android notch devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Offscreen rendering optimization for faster mobile first paint & scroll */
+.defer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 640px;
+}
+
+/* Compositor-only fast animations (<= 200ms) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheetUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawerLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-sheetUp {
+  animation: sheetUp 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-drawerIn {
+  animation: drawerLeft 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

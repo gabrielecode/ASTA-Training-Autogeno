@@ -31,6 +31,9 @@ export function AstaLogo({
       <img
         src="/assets/aistudio/logo_asta_trainig_5603fac5.jpeg"
         alt={title}
+        width={size}
+        height={size}
+        decoding="async"
         className="w-full h-full object-contain"
         referrerPolicy="no-referrer"
       />
@@ -44,6 +47,7 @@ export interface AstaBrandProps {
   subtitleText: string;
   className?: string;
   href?: string;
+  compactOnMobile?: boolean;
 }
 
 export function AstaBrand({
@@ -52,18 +56,28 @@ export function AstaBrand({
   subtitleText,
   className = "",
   href = "#",
+  compactOnMobile = false,
 }: AstaBrandProps) {
   const textColor = variant === "dark" ? "text-[#334E3B]" : "text-white";
   const subColor = variant === "dark" ? "text-[#2C3531]/70" : "text-white/70";
 
   return (
-    <a href={href} className={`flex items-center gap-3 group text-left ${className}`}>
-      <AstaLogo size={size} variant={variant} title="ASTA - Associazione Svizzera Training Autogeno" />
-      <div className="flex flex-col">
-        <span className={`text-xl font-bold font-serif tracking-tight leading-tight ${textColor}`}>
+    <a href={href} className={`flex items-center gap-2.5 sm:gap-3 group text-left min-w-0 ${className}`}>
+      <AstaLogo
+        size={size}
+        variant={variant}
+        title="ASTA - Associazione Svizzera Training Autogeno"
+        className={compactOnMobile ? "w-8 h-8 sm:w-[38px] sm:h-[38px]" : ""}
+      />
+      <div className="flex flex-col min-w-0">
+        <span className={`text-lg sm:text-xl font-bold font-serif tracking-tight leading-tight whitespace-nowrap ${textColor}`}>
           ASTA
         </span>
-        <span className={`text-[10px] sm:text-xs font-sans tracking-wide leading-none mt-0.5 ${subColor}`}>
+        <span
+          className={`${
+            compactOnMobile ? "hidden sm:block" : "block"
+          } text-[10px] sm:text-xs font-sans tracking-wide leading-none mt-0.5 truncate ${subColor}`}
+        >
           {subtitleText}
         </span>
       </div>
