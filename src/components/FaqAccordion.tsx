@@ -45,12 +45,12 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenId(isOpen ? null : item.id)}
-                className="relative w-full min-h-[52px] text-left py-[18px] pr-10 font-sans font-semibold text-[18px] text-[#24382B] cursor-pointer bg-transparent border-0"
+                className="relative w-full min-h-[52px] text-left py-4 sm:py-[18px] pr-10 font-sans font-semibold text-[16px] sm:text-[18px] leading-[1.4] text-[#24382B] cursor-pointer bg-transparent border-0"
               >
                 <span>{item.question}</span>
                 <span
                   aria-hidden="true"
-                  className={`absolute right-1 top-1/2 -translate-y-1/2 text-[26px] font-normal text-[#3E5B47] transition-transform duration-200 ${
+                  className={`absolute right-1 top-1/2 -translate-y-1/2 text-[24px] sm:text-[26px] font-normal text-[#3E5B47] transition-transform duration-200 ${
                     isOpen ? 'rotate-45' : ''
                   }`}
                 >
@@ -63,7 +63,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
               role="region"
               aria-labelledby={buttonId}
               hidden={!isOpen}
-              className="pb-5 text-[#4F5E55] text-[17px]"
+              className="pb-4 sm:pb-5 text-[#4F5E55] text-[15.5px] sm:text-[17px] leading-[1.65]"
             >
               <p>{item.answer}</p>
             </div>
