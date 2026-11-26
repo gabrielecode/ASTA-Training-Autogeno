@@ -564,7 +564,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-1.5 min-h-[36px] px-4 py-1.5 rounded-full font-semibold text-[13px] no-underline border border-[#3E5B47]/45 text-[#24382B] bg-[#FCFBF7]/80 hover:bg-[#3E5B47] hover:text-white hover:border-[#3E5B47] transition-colors text-center shrink-0 max-w-full"
             >
-              <span>Vuoi un sito come questo? Contattaci</span>
+              <span>Vuoi un sito come questo? Contattaci – Connect &amp; Create</span>
               <ArrowUpRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
             </a>
           </div>
