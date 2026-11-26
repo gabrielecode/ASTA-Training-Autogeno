@@ -8,6 +8,7 @@ import { Menu, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import {
   CONTACT_EMAIL,
   MAILTO_HREF,
+  SITITICINO_URL,
   LOGO_SRC,
   HERO_LOGO_SRC,
   RELAX_IMAGE_SRC,
@@ -161,11 +162,11 @@ export default function App() {
           aria-labelledby="hero-title"
           className="w-full bg-[#FCFBF7] border-b border-[rgba(36,56,43,0.10)] flex flex-col items-center"
         >
-          <div className="w-full bg-[#F5F4EC]/55">
+          <div className="w-full bg-[#F5F4EC]/55 px-5 sm:px-10 pt-6 sm:pt-10 pb-2">
             <img
               src={HERO_LOGO_SRC}
               alt={content.logoAlt}
-              className="w-full h-auto max-h-[calc(100svh-76px)] object-contain mx-auto mix-blend-multiply animate-rise block"
+              className="w-full max-w-[1040px] h-auto max-h-[calc(100svh-120px)] object-contain mx-auto animate-rise block"
             />
           </div>
 
@@ -539,7 +540,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="border-t border-[rgba(36,56,43,0.14)] py-7 sm:py-8 text-[#4F5E55] text-[13.5px] sm:text-[14px] bg-[#F6F3EA]">
-        <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4">
             <img
               src={LOGO_SRC}
@@ -549,13 +550,22 @@ export default function App() {
             <span>{content.orgName}</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-5">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-end gap-2.5 sm:gap-4 lg:gap-5">
             <span>{content.orgLocation}</span>
             <a
               href={MAILTO_HREF}
               className="text-[#24382B] font-medium underline underline-offset-4 hover:text-[#3E5B47] transition-colors"
             >
               {CONTACT_EMAIL}
+            </a>
+            <a
+              href={SITITICINO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 min-h-[36px] px-4 py-1.5 rounded-full font-semibold text-[13px] no-underline border border-[#3E5B47]/45 text-[#24382B] bg-[#FCFBF7]/80 hover:bg-[#3E5B47] hover:text-white hover:border-[#3E5B47] transition-colors text-center shrink-0 max-w-full"
+            >
+              <span>Vuoi un sito come questo? Contattaci</span>
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
             </a>
           </div>
         </div>
