@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { CONTACT_EMAIL, MAILTO_HREF, type FaqItem } from '../config';
+import { Paragraphs } from './Paragraphs';
 
 interface FaqAccordionProps {
   items: readonly FaqItem[];
@@ -45,7 +46,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenId(isOpen ? null : item.id)}
-                className="relative w-full min-h-[52px] text-left py-4 sm:py-[18px] pr-10 font-sans font-semibold text-[16px] sm:text-[18px] leading-[1.4] text-[#24382B] cursor-pointer bg-transparent border-0"
+                className="relative w-full min-h-[52px] text-left py-4 sm:py-[18px] pr-10 font-sans font-semibold text-[16px] sm:text-[18px] leading-[1.45] text-[#24382B] cursor-pointer bg-transparent border-0"
               >
                 <span>{item.question}</span>
                 <span
@@ -63,9 +64,9 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
               role="region"
               aria-labelledby={buttonId}
               hidden={!isOpen}
-              className="pb-4 sm:pb-5 text-[#4F5E55] text-[15.5px] sm:text-[17px] leading-[1.65]"
+              className="pb-5 sm:pb-6 space-y-3 text-[#4F5E55] text-[15.5px] sm:text-[16.5px] leading-[1.7] max-w-[65ch]"
             >
-              <p>{item.answer}</p>
+              <Paragraphs text={item.answer} />
             </div>
           </div>
         );

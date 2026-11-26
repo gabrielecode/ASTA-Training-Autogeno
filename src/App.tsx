@@ -23,6 +23,7 @@ import {
 import { MobileDrawer } from './components/MobileDrawer';
 import { FaqAccordion } from './components/FaqAccordion';
 import { LanguageSelector } from './components/LanguageSelector';
+import { Paragraphs } from './components/Paragraphs';
 
 function detectInitialLang(): Lang {
   try {
@@ -187,16 +188,16 @@ export default function App() {
             aria-labelledby="heading-chi-siamo"
             className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[760px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-chi-siamo"
                 className="font-serif font-semibold text-[clamp(26px,5.4vw,48px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.aboutHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.aboutText}
-              </p>
+              <div className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-[16px] sm:text-[17.5px] leading-[1.7] text-[#4F5E55] text-left sm:text-center">
+                <Paragraphs text={content.aboutText} />
+              </div>
             </div>
           </section>
 
@@ -213,9 +214,9 @@ export default function App() {
               {content.goalsHeading}
             </h2>
 
-            <ul className="leaf-list list-none mt-6 sm:mt-8 mx-auto max-w-[960px] grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-3.5 sm:gap-y-4">
+            <ul className="leaf-list list-none mt-6 sm:mt-8 mx-auto max-w-[960px] grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 sm:gap-y-4.5">
               {content.goals.map((goal) => (
-                <li key={goal} className="text-[15.5px] sm:text-[16px] leading-[1.6] text-[#23302A]">
+                <li key={goal} className="text-[15.5px] sm:text-[16px] leading-[1.65] text-[#23302A]">
                   {goal}
                 </li>
               ))}
@@ -228,22 +229,25 @@ export default function App() {
             aria-labelledby="heading-entra"
             className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-entra"
                 className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.joinHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.55] font-medium text-[#24382B]">
-                {content.joinTherapistTitle}
-              </p>
-              <p className="mt-2.5 sm:mt-3 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.joinText}
-              </p>
+              <div className="mt-4 sm:mt-5 space-y-3 sm:space-y-3.5 text-left sm:text-center">
+                <p className="text-[16px] sm:text-[18px] leading-[1.6] font-medium text-[#24382B]">
+                  {content.joinTherapistTitle}
+                </p>
+                <Paragraphs
+                  text={content.joinText}
+                  className="text-[16px] sm:text-[17.5px] leading-[1.7] text-[#4F5E55]"
+                />
+              </div>
               <div className="mt-6 sm:mt-7 flex justify-center">
                 <a
-                  href={MAILTO_HREF}
+                  href={`${MAILTO_HREF}?subject=${encodeURIComponent('Richiesta Informazioni Adesione ASTA')}`}
                   className="w-full max-w-[320px] sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
                 >
                   {content.ctaContact}
@@ -252,28 +256,31 @@ export default function App() {
             </div>
           </section>
 
-          {/* 6. VUOI SOSTENERE IL TRAINING AUTOGENO? */}
+          {/* 6. VUOI SOSTENERE ASTA? */}
           <section
             id="sostieni-asta"
             aria-labelledby="heading-sostieni"
             className="rounded-[22px] sm:rounded-[30px] bg-[#E6EFEA]/55 border border-[rgba(36,56,43,0.12)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[720px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-sostieni"
                 className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.supportHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                <span className="block font-medium text-[#24382B] mb-1.5">
+              <div className="mt-4 sm:mt-5 space-y-3 sm:space-y-3.5 text-left sm:text-center">
+                <p className="text-[16px] sm:text-[18px] leading-[1.6] font-medium text-[#24382B]">
                   {content.supportLead}
-                </span>
-                {content.supportText}
-              </p>
+                </p>
+                <Paragraphs
+                  text={content.supportText}
+                  className="text-[16px] sm:text-[17.5px] leading-[1.7] text-[#4F5E55]"
+                />
+              </div>
               <div className="mt-6 sm:mt-7 flex justify-center">
                 <a
-                  href={MAILTO_HREF}
+                  href={`${MAILTO_HREF}?subject=${encodeURIComponent('Richiesta Informazioni Sostegno ASTA')}`}
                   className="w-full max-w-[320px] sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
                 >
                   {content.ctaContact}
@@ -363,19 +370,17 @@ export default function App() {
             aria-labelledby="heading-cose"
             className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[740px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-cose"
                 className="font-serif font-semibold text-[clamp(26px,5.4vw,48px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.methodHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.methodParagraph1}
-              </p>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.methodParagraph2}
-              </p>
+              <div className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-[16px] sm:text-[17.5px] leading-[1.7] text-[#4F5E55] text-left sm:text-center">
+                <Paragraphs text={content.methodParagraph1} />
+                <Paragraphs text={content.methodParagraph2} />
+              </div>
             </div>
           </section>
 
@@ -392,14 +397,14 @@ export default function App() {
               {content.benefitsHeading}
             </h2>
 
-            <div className="mt-6 sm:mt-9 mx-auto max-w-[1000px] grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-7 sm:gap-y-8 items-start">
+            <div className="mt-6 sm:mt-9 mx-auto max-w-[1000px] grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-8 sm:gap-y-9 items-start">
               <div>
-                <h3 className="font-serif font-semibold text-[24px] sm:text-[28px] leading-[1.15] text-[#24382B] mb-3.5 sm:mb-4">
+                <h3 className="font-serif font-semibold text-[24px] sm:text-[28px] leading-[1.15] text-[#24382B] mb-4">
                   {content.physicalBenefitsHeading}
                 </h3>
-                <ul className="leaf-list list-none grid gap-3 sm:gap-3.5">
+                <ul className="leaf-list list-none grid gap-3.5 sm:gap-4">
                   {content.physicalBenefits.map((item) => (
-                    <li key={item} className="text-[15.5px] sm:text-[16px] leading-[1.6] text-[#23302A]">
+                    <li key={item} className="text-[15.5px] sm:text-[16px] leading-[1.65] text-[#23302A]">
                       {item}
                     </li>
                   ))}
@@ -407,12 +412,12 @@ export default function App() {
               </div>
 
               <div>
-                <h3 className="font-serif font-semibold text-[24px] sm:text-[28px] leading-[1.15] text-[#24382B] mb-3.5 sm:mb-4">
+                <h3 className="font-serif font-semibold text-[24px] sm:text-[28px] leading-[1.15] text-[#24382B] mb-4">
                   {content.psychicBenefitsHeading}
                 </h3>
-                <ul className="leaf-list list-none grid gap-3 sm:gap-3.5">
+                <ul className="leaf-list list-none grid gap-3.5 sm:gap-4">
                   {content.psychicBenefits.map((item) => (
-                    <li key={item} className="text-[15.5px] sm:text-[16px] leading-[1.6] text-[#23302A]">
+                    <li key={item} className="text-[15.5px] sm:text-[16px] leading-[1.65] text-[#23302A]">
                       {item}
                     </li>
                   ))}
@@ -422,7 +427,7 @@ export default function App() {
 
             <p
               aria-label={content.disclaimerLabel}
-              className="mt-7 sm:mt-8 pt-4 border-t border-[rgba(36,56,43,0.12)] max-w-[1000px] mx-auto text-center text-[13px] sm:text-[13.5px] leading-[1.5] text-[#4F5E55]"
+              className="mt-7 sm:mt-8 pt-4 border-t border-[rgba(36,56,43,0.12)] max-w-[1000px] mx-auto text-center text-[18.5px] font-bold leading-[1.55] text-[#07662d]"
             >
               {content.disclaimerText}
             </p>
@@ -434,16 +439,16 @@ export default function App() {
             aria-labelledby="heading-rivolto"
             className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[740px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-rivolto"
                 className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.whoHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.whoText}
-              </p>
+              <div className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-[16px] sm:text-[17.5px] leading-[1.7] text-[#4F5E55] text-left sm:text-center">
+                <Paragraphs text={content.whoText} />
+              </div>
             </div>
           </section>
 
@@ -453,16 +458,16 @@ export default function App() {
             aria-labelledby="heading-funziona"
             className="rounded-[22px] sm:rounded-[30px] bg-[#E6EFEA]/75 border border-[rgba(36,56,43,0.12)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[740px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-funziona"
                 className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.howHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#23302A] text-left sm:text-center">
-                {content.howText}
-              </p>
+              <div className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-[16px] sm:text-[17.5px] leading-[1.7] text-[#23302A] text-left sm:text-center">
+                <Paragraphs text={content.howText} />
+              </div>
             </div>
           </section>
 
@@ -472,16 +477,16 @@ export default function App() {
             aria-labelledby="heading-riconoscimento"
             className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
-            <div className="max-w-[740px] mx-auto">
+            <div className="max-w-[660px] mx-auto">
               <h2
                 id="heading-riconoscimento"
                 className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.recognitionHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.recognitionText}
-              </p>
+              <div className="mt-4 sm:mt-5 space-y-3.5 sm:space-y-4 text-[16px] sm:text-[17.5px] leading-[1.7] text-[#4F5E55] text-left sm:text-center">
+                <Paragraphs text={content.recognitionText} />
+              </div>
             </div>
           </section>
 
