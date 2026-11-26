@@ -65,7 +65,7 @@ export default function App() {
               href={MAILTO_HREF}
               className="hidden lg:inline-flex items-center justify-center min-h-[42px] px-5 rounded-full font-semibold text-[14px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
             >
-              Scrivici
+              Contattaci
             </a>
 
             <button
@@ -114,45 +114,156 @@ export default function App() {
             Un metodo scientificamente fondato di auto distensione, per il benessere di mente e corpo.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 justify-center animate-rise-delay-2">
+          <div className="mt-8 flex justify-center animate-rise-delay-2">
             <a
               href={MAILTO_HREF}
               className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
             >
               Contattaci
             </a>
-            <a
-              href={MAILTO_HREF}
-              className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline border border-[#3E5B47] bg-transparent text-[#24382B] hover:bg-[#3E5B47] hover:text-white transition-colors whitespace-nowrap shrink-0"
-            >
-              Scrivici
-            </a>
           </div>
         </section>
 
-        {/* 3. COS'È IL TRAINING AUTOGENO */}
+        {/* 3. ASTA: CHI SIAMO */}
+        <section
+          id="chi-siamo"
+          aria-labelledby="heading-chi-siamo"
+          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(36px,5.5vw,58px)] px-[clamp(22px,4.5vw,52px)] text-center"
+        >
+          <div className="max-w-[760px] mx-auto">
+            <h2
+              id="heading-chi-siamo"
+              className="font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.08] text-[#24382B] text-balance"
+            >
+              ASTA: chi siamo
+            </h2>
+            <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
+              L’Associazione Svizzera di Training Autogeno (ASTA) è nata nel 2026, con sede a Lugano, come associazione senza scopo di lucro. Riunisce i professionisti del Training Autogeno con l’obiettivo di promuoverne la corretta applicazione e di diffondere informazioni scientificamente fondate.
+            </p>
+          </div>
+        </section>
+
+        {/* 4. I NOSTRI SCOPI */}
+        <section
+          id="scopi"
+          aria-labelledby="heading-scopi"
+          className="rounded-[30px] bg-[#E6EFEA]/65 border border-[rgba(36,56,43,0.12)] py-[clamp(38px,6vw,64px)] px-[clamp(22px,4.5vw,52px)]"
+        >
+          <h2
+            id="heading-scopi"
+            className="text-center font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.08] text-[#24382B] text-balance"
+          >
+            I nostri scopi
+          </h2>
+
+          <ul className="leaf-list list-none mt-8 mx-auto max-w-[960px] grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4">
+            {ASTA_GOALS.map((goal) => (
+              <li key={goal} className="text-[16px] leading-[1.6] text-[#23302A]">
+                {goal}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* 5. ENTRA IN ASTA */}
+        <section
+          id="entra-in-asta"
+          aria-labelledby="heading-entra"
+          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(36px,5.5vw,58px)] px-[clamp(22px,4.5vw,52px)] text-center"
+        >
+          <div className="max-w-[720px] mx-auto">
+            <h2
+              id="heading-entra"
+              className="font-serif font-semibold text-[clamp(32px,4vw,46px)] leading-[1.08] text-[#24382B] text-balance"
+            >
+              Entra in ASTA
+            </h2>
+            <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
+              Sei un/una terapista complementare TA RME? Unisciti all’associazione per partecipare a supervisioni e intervisioni, eventi formativi e a una rete professionale che promuove qualità ed etica.
+            </p>
+            <div className="mt-7 flex justify-center">
+              <a
+                href={MAILTO_HREF}
+                className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
+              >
+                Contattaci
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. TERAPISTE FONDATRICI DI ASTA RICONOSCIUTE RME */}
+        <section
+          id="terapiste"
+          aria-labelledby="heading-terapiste"
+          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(38px,6vw,64px)] px-[clamp(22px,4.5vw,52px)] text-center"
+        >
+          <h2
+            id="heading-terapiste"
+            className="font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.1] text-[#24382B] text-balance max-w-[20em] mx-auto"
+          >
+            Terapiste fondatrici di ASTA riconosciute RME
+          </h2>
+
+          <div className="mt-9 mx-auto max-w-[960px] grid grid-cols-1 md:grid-cols-3 gap-6">
+            {FOUNDER_THERAPISTS.map((therapist) => (
+              <article
+                key={therapist.name}
+                className="rounded-2xl bg-[#F6F3EA]/70 border border-[rgba(36,56,43,0.12)] px-6 py-7 flex flex-col items-center justify-between gap-4"
+              >
+                <div>
+                  <h3 className="font-serif font-semibold text-[28px] leading-[1.15] text-[#24382B]">
+                    {therapist.name}
+                  </h3>
+                  <p className="mt-2 text-[15px] text-[#4F5E55]">
+                    {therapist.details}
+                  </p>
+                </div>
+
+                <a
+                  href={therapist.rmeUrl ?? '#'}
+                  target={therapist.rmeUrl ? '_blank' : undefined}
+                  rel={therapist.rmeUrl ? 'noopener noreferrer' : undefined}
+                  data-placeholder={therapist.rmeUrl ? undefined : therapist.placeholderAttr}
+                  onClick={therapist.rmeUrl ? undefined : (e) => e.preventDefault()}
+                  aria-label={
+                    therapist.rmeUrl
+                      ? `Profilo RME di ${therapist.name}`
+                      : `Profilo RME di ${therapist.name} (segnaposto)`
+                  }
+                  className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-5 rounded-full font-semibold text-[14px] no-underline border border-[#3E5B47] text-[#24382B] hover:bg-[#3E5B47] hover:text-white transition-colors whitespace-nowrap"
+                >
+                  <span>Profilo RME</span>
+                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 7. COS'È IL TRAINING AUTOGENO */}
         <section
           id="cose-il-training-autogeno"
           aria-labelledby="heading-cose"
-          className="rounded-[30px] bg-[#24382B] text-[#F4F1E6] py-[clamp(40px,6vw,68px)] px-[clamp(22px,5vw,56px)] text-center"
+          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(36px,5.5vw,58px)] px-[clamp(22px,4.5vw,52px)] text-center"
         >
           <div className="max-w-[740px] mx-auto">
             <h2
               id="heading-cose"
-              className="font-serif font-semibold text-[clamp(34px,4.4vw,52px)] leading-[1.08] text-[#F4F1E6] text-balance"
+              className="font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.08] text-[#24382B] text-balance"
             >
               Cos’è il Training Autogeno
             </h2>
-            <p className="mt-5 text-[18px] leading-[1.7] text-[#F4F1E6]/92">
+            <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
               Il Training Autogeno (TA) è un metodo di auto distensione da concentrazione psichica, ideato dallo psichiatra Johannes Heinrich Schultz (1884-1970). Attraverso un allenamento (training) costante, permette di raggiungere uno stato di calma e rilassamento che si genera da sé (autogeno).
             </p>
-            <p className="mt-4 text-[18px] leading-[1.7] text-[#F4F1E6]/92">
+            <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
               È un metodo semplice e non invasivo per distendersi, ristabilire l’equilibrio psicosomatico e ritrovare l’armonia tra mente e corpo, agendo a livello fisico, psicologico e fisiologico. Con la pratica si impara a raggiungere la calma in tempi brevi e a ridurre lo stress e la tensione accumulati durante la giornata.
             </p>
           </div>
         </section>
 
-        {/* 4. I BENEFICI */}
+        {/* 8. I BENEFICI */}
         <section
           id="benefici"
           aria-labelledby="heading-benefici"
@@ -194,7 +305,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. NOTA / DISCLAIMER */}
+        {/* 9. NOTA / DISCLAIMER */}
         <section
           aria-label="Nota informativa"
           className="rounded-[20px] bg-[#E6EFEA] border border-[rgba(36,56,43,0.14)] px-6 py-4 text-center"
@@ -204,7 +315,7 @@ export default function App() {
           </p>
         </section>
 
-        {/* 6. A CHI È RIVOLTO */}
+        {/* 10. A CHI È RIVOLTO */}
         <section
           id="a-chi-e-rivolto"
           aria-labelledby="heading-rivolto"
@@ -223,7 +334,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 7. COME FUNZIONA */}
+        {/* 11. COME FUNZIONA */}
         <section
           id="come-funziona"
           aria-labelledby="heading-funziona"
@@ -242,7 +353,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 8. RICONOSCIMENTO E RIMBORSO */}
+        {/* 12. RICONOSCIMENTO E RIMBORSO */}
         <section
           id="riconoscimento"
           aria-labelledby="heading-riconoscimento"
@@ -261,123 +372,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* 9. TERAPISTE FONDATRICI DI ASTA RICONOSCIUTE RME */}
-        <section
-          id="terapiste"
-          aria-labelledby="heading-terapiste"
-          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(38px,6vw,64px)] px-[clamp(22px,4.5vw,52px)] text-center"
-        >
-          <h2
-            id="heading-terapiste"
-            className="font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.1] text-[#24382B] text-balance max-w-[20em] mx-auto"
-          >
-            Terapiste fondatrici di ASTA riconosciute RME
-          </h2>
-
-          <div className="mt-9 mx-auto max-w-[960px] grid grid-cols-1 md:grid-cols-3 gap-6">
-            {FOUNDER_THERAPISTS.map((therapist) => (
-              <article
-                key={therapist.name}
-                className="rounded-2xl bg-[#F6F3EA]/70 border border-[rgba(36,56,43,0.12)] px-6 py-7 flex flex-col items-center justify-between gap-4"
-              >
-                <div>
-                  <h3 className="font-serif font-semibold text-[28px] leading-[1.15] text-[#24382B]">
-                    {therapist.name}
-                  </h3>
-                  <p className="mt-2 text-[15px] text-[#4F5E55]">
-                    {therapist.details}
-                  </p>
-                </div>
-
-                <a
-                  href="#"
-                  data-placeholder={therapist.placeholderAttr}
-                  onClick={(e) => e.preventDefault()}
-                  aria-label={`Profilo RME di ${therapist.name} (segnaposto)`}
-                  className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-5 rounded-full font-semibold text-[14px] no-underline border border-[#3E5B47] text-[#24382B] hover:bg-[#3E5B47] hover:text-white transition-colors whitespace-nowrap"
-                >
-                  <span>Profilo RME</span>
-                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-                </a>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* 10. ASTA: CHI SIAMO */}
-        <section
-          id="chi-siamo"
-          aria-labelledby="heading-chi-siamo"
-          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(36px,5.5vw,58px)] px-[clamp(22px,4.5vw,52px)] text-center"
-        >
-          <div className="max-w-[760px] mx-auto">
-            <h2
-              id="heading-chi-siamo"
-              className="font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.08] text-[#24382B] text-balance"
-            >
-              ASTA: chi siamo
-            </h2>
-            <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
-              L’Associazione Svizzera di Training Autogeno (ASTA) è nata nel 2026, con sede a Lugano, come associazione senza scopo di lucro. Riunisce i professionisti del Training Autogeno con l’obiettivo di promuoverne la corretta applicazione e di diffondere informazioni scientificamente fondate.
-            </p>
-          </div>
-        </section>
-
-        {/* 11. I NOSTRI SCOPI */}
-        <section
-          id="scopi"
-          aria-labelledby="heading-scopi"
-          className="rounded-[30px] bg-[#E6EFEA]/65 border border-[rgba(36,56,43,0.12)] py-[clamp(38px,6vw,64px)] px-[clamp(22px,4.5vw,52px)]"
-        >
-          <h2
-            id="heading-scopi"
-            className="text-center font-serif font-semibold text-[clamp(32px,4.2vw,48px)] leading-[1.08] text-[#24382B] text-balance"
-          >
-            I nostri scopi
-          </h2>
-
-          <ul className="leaf-list list-none mt-8 mx-auto max-w-[960px] grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4">
-            {ASTA_GOALS.map((goal) => (
-              <li key={goal} className="text-[16px] leading-[1.6] text-[#23302A]">
-                {goal}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* 12. ENTRA IN ASTA */}
-        <section
-          id="entra-in-asta"
-          aria-labelledby="heading-entra"
-          className="rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-[clamp(36px,5.5vw,58px)] px-[clamp(22px,4.5vw,52px)] text-center"
-        >
-          <div className="max-w-[720px] mx-auto">
-            <h2
-              id="heading-entra"
-              className="font-serif font-semibold text-[clamp(32px,4vw,46px)] leading-[1.08] text-[#24382B] text-balance"
-            >
-              Entra in ASTA
-            </h2>
-            <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
-              Sei un/una terapista complementare TA RME? Unisciti all’associazione per partecipare a supervisioni e intervisioni, eventi formativi e a una rete professionale che promuove qualità ed etica.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3 justify-center">
-              <a
-                href={MAILTO_HREF}
-                className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
-              >
-                Contattaci
-              </a>
-              <a
-                href={MAILTO_HREF}
-                className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline border border-[#3E5B47] bg-transparent text-[#24382B] hover:bg-[#3E5B47] hover:text-white transition-colors whitespace-nowrap shrink-0"
-              >
-                Scrivici
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* 13. SOSTIENI ASTA */}
         <section
           id="sostieni-asta"
@@ -392,26 +386,20 @@ export default function App() {
               Sostieni ASTA
             </h2>
             <p className="mt-4 text-[18px] leading-[1.7] text-[#4F5E55]">
-              Vuoi sostenere il Training Autogeno? Persone e organizzazioni possono sostenere ASTA come soci sostenitori (membri passivi).
+              Vuoi sostenere il Training Autogeno? Persone e organizzazioni possono sostenere ASTA come soci sostenitori.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3 justify-center">
+            <div className="mt-7 flex justify-center">
               <a
                 href={MAILTO_HREF}
                 className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
               >
                 Contattaci
               </a>
-              <a
-                href={MAILTO_HREF}
-                className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline border border-[#3E5B47] bg-transparent text-[#24382B] hover:bg-[#3E5B47] hover:text-white transition-colors whitespace-nowrap shrink-0"
-              >
-                Scrivici
-              </a>
             </div>
           </div>
         </section>
 
-        {/* 14. DOMANDE FREQUENTI (PLACEHOLDER) */}
+        {/* 14. DOMANDE FREQUENTI */}
         <section
           id="faq"
           aria-labelledby="heading-faq"
@@ -457,18 +445,12 @@ export default function App() {
               </div>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-3 justify-center">
+            <div className="mt-7 flex justify-center">
               <a
                 href={MAILTO_HREF}
                 className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
               >
                 Contattaci
-              </a>
-              <a
-                href={MAILTO_HREF}
-                className="inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline border border-[#3E5B47] bg-transparent text-[#24382B] hover:bg-[#3E5B47] hover:text-white transition-colors whitespace-nowrap shrink-0"
-              >
-                Scrivici
               </a>
             </div>
           </div>

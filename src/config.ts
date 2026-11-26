@@ -17,29 +17,30 @@ export interface NavItem {
 }
 
 export const NAV_LINKS: readonly NavItem[] = [
+  { href: "#chi-siamo", label: "Chi siamo" },
+  { href: "#terapiste", label: "Terapiste" },
   { href: "#cose-il-training-autogeno", label: "Il metodo" },
   { href: "#benefici", label: "Benefici" },
-  { href: "#terapiste", label: "Terapiste" },
-  { href: "#chi-siamo", label: "Chi siamo" },
   { href: "#contatti", label: "Contatti" },
 ];
 
 export interface TherapistFounder {
   name: string;
   details: string;
-  placeholderAttr: string;
+  rmeUrl?: string;
+  placeholderAttr?: string;
 }
 
 export const FOUNDER_THERAPISTS: readonly TherapistFounder[] = [
   {
-    name: "Cristina Bettini",
+    name: "Cristina Bettini Cerini",
     details: "Gordevio – Segretaria e Tesoriera",
-    placeholderAttr: "URL RME Cristina Bettini",
+    rmeUrl: "https://emr.ch/it/terapeuta/cristina.bettini.cerini",
   },
   {
     name: "Francesca Betteni",
     details: "Lugano – Presidente",
-    placeholderAttr: "URL RME Francesca Betteni",
+    rmeUrl: "https://emr.ch/it/terapeuta/francesca.betteni",
   },
   {
     name: "Tamara Ghisletta",

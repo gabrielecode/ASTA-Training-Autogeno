@@ -95,7 +95,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             onClick={onClose}
             className="w-full inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors"
           >
-            Scrivici
+            Contattaci
           </a>
           <p className="text-[13px] text-[#4F5E55] text-center">{ORG_LOCATION}</p>
         </div>
