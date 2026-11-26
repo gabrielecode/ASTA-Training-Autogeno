@@ -241,6 +241,16 @@ export default function App() {
           </div>
         </section>
 
+        <figure className="rounded-[30px] overflow-hidden border border-[rgba(36,56,43,0.10)] bg-[#FCFBF7]">
+          <img
+            src="/assets/aistudio/Woman_relaxing_on_therapy_chaise_3faef438_ae1d5a2b.jpg"
+            alt="Persona distesa in posizione rilassata durante una pratica di Training Autogeno in un ambiente calmo e luminoso"
+            loading="lazy"
+            decoding="async"
+            className="w-full aspect-[16/9] max-h-[500px] object-cover object-center"
+          />
+        </figure>
+
         {/* 7. COS'È IL TRAINING AUTOGENO */}
         <section
           id="cose-il-training-autogeno"

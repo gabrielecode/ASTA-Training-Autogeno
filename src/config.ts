@@ -45,7 +45,7 @@ export const FOUNDER_THERAPISTS: readonly TherapistFounder[] = [
   {
     name: "Tamara Ghisletta",
     details: "Preonzo – Vicepresidente",
-    placeholderAttr: "URL RME Tamara Ghisletta",
+    rmeUrl: "https://emr.ch/it/terapeuta/tamara.ghisletta",
   },
 ];
 
