@@ -73,24 +73,113 @@ export default function App() {
       // ignore storage errors
     }
 
+    const upsertMeta = (attr: 'name' | 'property', key: string, value: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', value);
+    };
+
     loadLocale(lang).then((loc) => {
       if (!active) return;
       setContent(loc);
 
+      const ogLocaleValue = loc.htmlLang.replace('-', '_');
+      const baseUrl = `${window.location.origin}${window.location.pathname}`;
+      const buildLangUrl = (code: Lang) =>
+        code === DEFAULT_LANG ? baseUrl : `${baseUrl}?lang=${code}`;
+
+      const shareUrl = buildLangUrl(lang);
+      const shareImageUrl = `${window.location.origin}${RELAX_IMAGE_SRC}`;
+
       document.documentElement.lang = loc.htmlLang;
       document.title = loc.metaTitle;
 
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute('content', loc.metaDescription);
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute('href', shareUrl);
 
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.setAttribute('content', loc.metaTitle);
+      document
+        .querySelectorAll('link[rel="alternate"][hreflang]')
+        .forEach((node) => node.remove());
+      const hreflangEntries: Array<{ hreflang: string; href: string }> = [
+        { hreflang: 'it-CH', href: buildLangUrl('it') },
+        { hreflang: 'de-CH', href: buildLangUrl('de') },
+        { hreflang: 'fr-CH', href: buildLangUrl('fr') },
+        { hreflang: 'en-CH', href: buildLangUrl('en') },
+        { hreflang: 'x-default', href: baseUrl },
+      ];
+      hreflangEntries.forEach(({ hreflang, href }) => {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', hreflang);
+        link.setAttribute('href', href);
+        document.head.appendChild(link);
+      });
 
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      if (ogDesc) ogDesc.setAttribute('content', loc.metaDescription);
+      upsertMeta('name', 'description', loc.metaDescription);
 
-      const ogLocale = document.querySelector('meta[property="og:locale"]');
-      if (ogLocale) ogLocale.setAttribute('content', loc.htmlLang.replace('-', '_'));
+      // OpenGraph
+      upsertMeta('property', 'og:type', 'website');
+      upsertMeta('property', 'og:site_name', loc.orgName);
+      upsertMeta('property', 'og:locale', ogLocaleValue);
+      upsertMeta('property', 'og:url', shareUrl);
+      upsertMeta('property', 'og:title', loc.metaTitle);
+      upsertMeta('property', 'og:description', loc.metaDescription);
+      upsertMeta('property', 'og:image', shareImageUrl);
+      upsertMeta('property', 'og:image:alt', loc.imageAlt);
+
+      const alternateLocales = ['it_CH', 'de_CH', 'fr_CH', 'en_CH'].filter(
+        (code) => code !== ogLocaleValue
+      );
+      document
+        .querySelectorAll('meta[property="og:locale:alternate"]')
+        .forEach((node) => node.remove());
+      alternateLocales.forEach((altLocale) => {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'og:locale:alternate');
+        meta.setAttribute('content', altLocale);
+        document.head.appendChild(meta);
+      });
+
+      // Twitter Card
+      upsertMeta('name', 'twitter:card', 'summary_large_image');
+      upsertMeta('name', 'twitter:title', loc.metaTitle);
+      upsertMeta('name', 'twitter:description', loc.metaDescription);
+      upsertMeta('name', 'twitter:image', shareImageUrl);
+      upsertMeta('name', 'twitter:image:alt', loc.imageAlt);
+
+      // FAQPage JSON-LD Structured Data
+      const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        inLanguage: loc.htmlLang,
+        name: `${loc.faqHeading} – ${loc.orgName}`,
+        url: `${shareUrl}#faq`,
+        mainEntity: loc.faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      };
+      let faqScript = document.getElementById('faq-jsonld') as HTMLScriptElement | null;
+      if (!faqScript) {
+        faqScript = document.createElement('script');
+        faqScript.id = 'faq-jsonld';
+        faqScript.type = 'application/ld+json';
+        document.head.appendChild(faqScript);
+      }
+      faqScript.textContent = JSON.stringify(faqSchema);
     });
 
     return () => {
@@ -159,6 +248,31 @@ export default function App() {
           </div>
         </div>
       </header>
+
+      {/* BREADCRUMB NAVIGATION BAR */}
+      <nav aria-label={content.breadcrumbAriaLabel} className="bg-[#FCFBF7] border-b border-[rgba(36,56,43,0.10)] py-2 sm:py-2.5">
+        <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto flex items-center flex-wrap gap-1.5 text-[13px] sm:text-[14px] text-[#4F5E55]">
+          <a
+            href="#top"
+            className="hover:text-[#24382B] transition-colors font-medium underline underline-offset-2"
+          >
+            {content.breadcrumbHome}
+          </a>
+          {content.navLinks.map((link) => (
+            <React.Fragment key={link.href}>
+              <span aria-hidden="true" className="text-[#4F5E55]/50 px-1">
+                /
+              </span>
+              <a
+                href={link.href}
+                className="hover:text-[#24382B] transition-colors"
+              >
+                {link.label}
+              </a>
+            </React.Fragment>
+          ))}
+        </div>
+      </nav>
 
       <MobileDrawer
         open={mobileMenuOpen}

@@ -19,6 +19,8 @@ export const FR_CONTENT: LocaleContent = {
   mobileMenuOpenLabel: 'Ouvrir le menu de navigation',
   mobileMenuCloseLabel: 'Fermer le menu',
   langSelectorLabel: 'Langue / Lingua / Sprache / Language',
+  breadcrumbHome: 'Accueil',
+  breadcrumbAriaLabel: 'Fil d’Ariane',
   navLinks: [
     { href: '#chi-siamo', label: 'Qui sommes-nous' },
     { href: '#terapiste', label: 'Thérapeutes' },

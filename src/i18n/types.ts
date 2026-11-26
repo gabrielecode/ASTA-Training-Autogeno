@@ -93,6 +93,8 @@ export interface LocaleContent {
   mobileMenuOpenLabel: string;
   mobileMenuCloseLabel: string;
   langSelectorLabel: string;
+  breadcrumbHome: string;
+  breadcrumbAriaLabel: string;
   navLinks: readonly NavItem[];
   ctaContact: string;
   taTitle: string;

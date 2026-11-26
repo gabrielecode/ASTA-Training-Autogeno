@@ -19,6 +19,8 @@ export const IT_CONTENT: LocaleContent = {
   mobileMenuOpenLabel: 'Apri menu di navigazione',
   mobileMenuCloseLabel: 'Chiudi menu',
   langSelectorLabel: 'Lingua / Sprache / Langue / Language',
+  breadcrumbHome: 'Home',
+  breadcrumbAriaLabel: 'Navigazione breadcrumb',
   navLinks: [
     { href: '#chi-siamo', label: 'Chi siamo' },
     { href: '#terapiste', label: 'Terapiste' },
