@@ -177,11 +177,6 @@ export default function App() {
             >
               {content.orgName}
             </h1>
-
-            <p className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-2 text-[#4F5E55] text-[15px] sm:text-[17px] animate-rise-delay-1">
-              <MapPin className="w-4 h-4 text-[#3E5B47] shrink-0" aria-hidden="true" />
-              <span>{content.orgLocation}</span>
-            </p>
           </div>
         </section>
 
@@ -475,16 +470,16 @@ export default function App() {
           <section
             id="riconoscimento"
             aria-labelledby="heading-riconoscimento"
-            className="rounded-[22px] sm:rounded-[30px] bg-[#24382B] text-[#F4F1E6] py-7 px-5 sm:py-[clamp(38px,6vw,60px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
+            className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
           >
             <div className="max-w-[740px] mx-auto">
               <h2
                 id="heading-riconoscimento"
-                className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#F4F1E6] text-balance"
+                className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
               >
                 {content.recognitionHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#F4F1E6]/90 text-left sm:text-center">
+              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
                 {content.recognitionText}
               </p>
             </div>
@@ -504,15 +499,6 @@ export default function App() {
               {content.faqHeading}
             </h2>
             <FaqAccordion items={content.faqItems} />
-            <p className="mt-6 text-[15px] sm:text-[16px] text-[#4F5E55]">
-              {content.faqEmailNote}{' '}
-              <a
-                href={MAILTO_HREF}
-                className="font-medium text-[#24382B] underline underline-offset-4 hover:text-[#3E5B47] transition-colors"
-              >
-                {CONTACT_EMAIL}
-              </a>
-            </p>
           </section>
 
           {/* 15. CONTATTI */}
