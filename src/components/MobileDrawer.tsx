@@ -5,24 +5,18 @@
 
 import React, { useEffect } from 'react';
 import { X, ArrowRight } from 'lucide-react';
-import { AstaBrand } from './AstaLogo';
+import { LOGO_SRC, LOGO_ALT, MAILTO_HREF, ORG_LOCATION, type NavItem } from '../config';
 
 interface MobileDrawerProps {
   open: boolean;
   onClose: () => void;
-  brandSubtitle: string;
-  links: Array<{ href: string; label: string }>;
-  ctaLabel: string;
-  onBook: () => void;
+  links: readonly NavItem[];
 }
 
 export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   open,
   onClose,
-  brandSubtitle,
   links,
-  ctaLabel,
-  onBook,
 }) => {
   useEffect(() => {
     if (!open) return;
@@ -49,49 +43,61 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
       aria-label="Menu di navigazione"
     >
       <div
-        className="fixed inset-0 bg-black/45 backdrop-blur-[2px] animate-fadeIn"
+        className="fixed inset-0 bg-[#142219]/45 backdrop-blur-[2px] animate-fadeIn"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      <aside className="relative z-10 w-[84vw] max-w-sm h-full bg-[#F8FAF6] shadow-2xl border-l border-[#334E3B]/10 flex flex-col justify-between animate-drawerIn overscroll-contain">
-        <div className="flex items-center justify-between px-5 h-14 border-b border-[#334E3B]/10 shrink-0">
-          <AstaBrand subtitleText={brandSubtitle} variant="dark" size={32} compactOnMobile />
+      <aside className="relative z-10 w-[84vw] max-w-sm h-full bg-[#FCFBF7] shadow-2xl border-l border-[rgba(36,56,43,0.14)] flex flex-col justify-between animate-drawerIn overscroll-contain">
+        <div className="flex items-center justify-between px-5 h-[76px] border-b border-[rgba(36,56,43,0.14)] shrink-0">
+          <a
+            href="#top"
+            onClick={onClose}
+            aria-label={LOGO_ALT}
+            className="inline-flex items-center gap-2.5 font-serif font-bold text-[22px] tracking-[0.04em] text-[#24382B] no-underline whitespace-nowrap"
+          >
+            <img
+              src={LOGO_SRC}
+              alt=""
+              aria-hidden="true"
+              className="h-11 w-auto mix-blend-multiply shrink-0"
+            />
+            <span>ASTA</span>
+          </a>
+
           <button
             type="button"
             onClick={onClose}
             aria-label="Chiudi menu"
-            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[#334E3B] hover:bg-[#334E3B]/10 transition-colors cursor-pointer"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-[#24382B] hover:bg-[#3E5B47]/10 transition-colors cursor-pointer"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
+        <nav aria-label="Navigazione mobile" className="flex-1 overflow-y-auto px-4 py-5 space-y-1.5">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="flex items-center justify-between min-h-[48px] px-3 py-2.5 rounded-xl text-base font-medium text-[#2C3531] hover:bg-white active:bg-[#334E3B]/5 transition-colors"
+              className="flex items-center justify-between min-h-[48px] px-4 py-3 rounded-2xl text-[16px] font-medium text-[#23302A] hover:bg-[#E6EFEA]/60 transition-colors"
             >
               <span>{link.label}</span>
-              <ArrowRight className="w-4 h-4 text-[#334E3B]/50" />
+              <ArrowRight className="w-4 h-4 text-[#3E5B47]/70" />
             </a>
           ))}
         </nav>
 
-        <div className="p-4 border-t border-[#334E3B]/10 bg-white pb-safe">
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              onBook();
-            }}
-            className="w-full min-h-[48px] py-3 px-4 text-sm font-semibold uppercase tracking-wider text-white bg-[#334E3B] rounded-xl hover:bg-[#25392a] active:scale-[0.98] transition-all shadow-sm cursor-pointer"
+        <div className="p-5 border-t border-[rgba(36,56,43,0.14)] bg-[#F6F3EA] pb-safe space-y-3">
+          <a
+            href={MAILTO_HREF}
+            onClick={onClose}
+            className="w-full inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors"
           >
-            {ctaLabel}
-          </button>
+            Scrivici
+          </a>
+          <p className="text-[13px] text-[#4F5E55] text-center">{ORG_LOCATION}</p>
         </div>
       </aside>
     </div>
