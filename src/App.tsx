@@ -157,7 +157,7 @@ export default function App() {
       />
 
       <main id="top" className="flex-1 w-full">
-        {/* 2. HERO FULL-SCREEN WIDTH */}
+        {/* 2. HERO ASSOCIAZIONE (ASTA) */}
         <section
           aria-labelledby="hero-title"
           className="w-full bg-[#FCFBF7] border-b border-[rgba(36,56,43,0.10)] flex flex-col items-center"
@@ -166,34 +166,22 @@ export default function App() {
             <img
               src={HERO_LOGO_SRC}
               alt={content.logoAlt}
-              className="w-full max-w-[1040px] h-auto max-h-[calc(100svh-120px)] object-contain mx-auto animate-rise block"
+              className="w-full max-w-[1040px] h-auto max-h-[calc(100svh-160px)] object-contain mx-auto animate-rise block"
             />
           </div>
 
-          <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto px-2 sm:px-6 pt-5 pb-9 sm:pt-8 sm:pb-14 text-center flex flex-col items-center">
-            <p className="text-[12px] sm:text-[14px] font-medium tracking-[0.04em] uppercase text-[#4F5E55] animate-rise">
-              {content.orgName}
-            </p>
-
+          <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto px-2 sm:px-6 pt-5 pb-9 sm:pt-7 sm:pb-12 text-center flex flex-col items-center">
             <h1
               id="hero-title"
-              className="mt-3 sm:mt-4 max-w-[18em] font-serif font-semibold text-[clamp(30px,6.2vw,64px)] leading-[1.1] sm:leading-[1.06] text-[#24382B] text-balance animate-rise"
+              className="max-w-[20em] font-serif font-semibold text-[clamp(28px,5.4vw,54px)] leading-[1.1] sm:leading-[1.08] text-[#24382B] text-balance animate-rise"
             >
-              {content.heroTitle}
+              {content.orgName}
             </h1>
 
-            <p className="mt-4 sm:mt-5 mx-auto max-w-[34em] text-[#4F5E55] text-[16px] sm:text-[19px] leading-[1.6] animate-rise-delay-1">
-              {content.heroSubtitle}
+            <p className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-2 text-[#4F5E55] text-[15px] sm:text-[17px] animate-rise-delay-1">
+              <MapPin className="w-4 h-4 text-[#3E5B47] shrink-0" aria-hidden="true" />
+              <span>{content.orgLocation}</span>
             </p>
-
-            <div className="mt-6 sm:mt-8 w-full flex justify-center animate-rise-delay-2">
-              <a
-                href={MAILTO_HREF}
-                className="w-full max-w-[320px] sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
-              >
-                {content.ctaContact}
-              </a>
-            </div>
           </div>
         </section>
 
@@ -252,8 +240,41 @@ export default function App() {
               >
                 {content.joinHeading}
               </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
+              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.55] font-medium text-[#24382B]">
+                {content.joinTherapistTitle}
+              </p>
+              <p className="mt-2.5 sm:mt-3 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
                 {content.joinText}
+              </p>
+              <div className="mt-6 sm:mt-7 flex justify-center">
+                <a
+                  href={MAILTO_HREF}
+                  className="w-full max-w-[320px] sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
+                >
+                  {content.ctaContact}
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* 6. VUOI SOSTENERE IL TRAINING AUTOGENO? */}
+          <section
+            id="sostieni-asta"
+            aria-labelledby="heading-sostieni"
+            className="rounded-[22px] sm:rounded-[30px] bg-[#E6EFEA]/55 border border-[rgba(36,56,43,0.12)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
+          >
+            <div className="max-w-[720px] mx-auto">
+              <h2
+                id="heading-sostieni"
+                className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
+              >
+                {content.supportHeading}
+              </h2>
+              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
+                <span className="block font-medium text-[#24382B] mb-1.5">
+                  {content.supportLead}
+                </span>
+                {content.supportText}
               </p>
               <div className="mt-6 sm:mt-7 flex justify-center">
                 <a
@@ -309,17 +330,39 @@ export default function App() {
             </div>
           </section>
 
-          <figure className="rounded-[22px] sm:rounded-[30px] overflow-hidden border border-[rgba(36,56,43,0.10)] bg-[#FCFBF7]">
-            <img
-              src={RELAX_IMAGE_SRC}
-              alt={content.imageAlt}
-              loading="lazy"
-              decoding="async"
-              className="w-full aspect-[16/10] sm:aspect-[16/9] max-h-[500px] object-cover object-center"
-            />
-          </figure>
+          {/* 7. TRAINING AUTOGENO: INTRO & IMMAGINE */}
+          <section
+            id="training-autogeno"
+            aria-labelledby="heading-ta-intro"
+            className="rounded-[22px] sm:rounded-[30px] overflow-hidden border border-[rgba(36,56,43,0.10)] bg-[#FCFBF7]"
+          >
+            <div className="py-8 px-5 sm:py-[clamp(40px,6vw,64px)] sm:px-[clamp(22px,4.5vw,52px)] text-center bg-[#E6EFEA]/45">
+              <div className="max-w-[820px] mx-auto">
+                <h2
+                  id="heading-ta-intro"
+                  className="font-serif font-semibold text-[clamp(28px,5.8vw,56px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
+                >
+                  <span className="block">{content.taTitle}</span>
+                  <span className="block mt-1">{content.taTitleLine2}</span>
+                </h2>
+                <p className="mt-3.5 sm:mt-4 mx-auto max-w-[36em] text-[#4F5E55] text-[16px] sm:text-[19px] leading-[1.6]">
+                  {content.taSubtitle}
+                </p>
+              </div>
+            </div>
 
-          {/* 7. COS'È IL TRAINING AUTOGENO */}
+            <figure>
+              <img
+                src={RELAX_IMAGE_SRC}
+                alt={content.imageAlt}
+                loading="lazy"
+                decoding="async"
+                className="w-full aspect-[16/10] sm:aspect-[16/9] max-h-[500px] object-cover object-center block"
+              />
+            </figure>
+          </section>
+
+          {/* 8. COS'È IL TRAINING AUTOGENO */}
           <section
             id="cose-il-training-autogeno"
             aria-labelledby="heading-cose"
@@ -341,7 +384,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* 8. I BENEFICI */}
+          {/* 9. I BENEFICI (+ NOTA IN PICCOLO) */}
           <section
             id="benefici"
             aria-labelledby="heading-benefici"
@@ -381,14 +424,11 @@ export default function App() {
                 </ul>
               </div>
             </div>
-          </section>
 
-          {/* 9. NOTA / DISCLAIMER */}
-          <section
-            aria-label={content.disclaimerLabel}
-            className="rounded-[18px] sm:rounded-[20px] bg-[#E6EFEA] border border-[rgba(36,56,43,0.14)] px-5 py-3.5 sm:px-6 sm:py-4 text-center"
-          >
-            <p className="text-[14.5px] sm:text-[15px] leading-[1.5] text-[#24382B] font-medium">
+            <p
+              aria-label={content.disclaimerLabel}
+              className="mt-7 sm:mt-8 pt-4 border-t border-[rgba(36,56,43,0.12)] max-w-[1000px] mx-auto text-center text-[13px] sm:text-[13.5px] leading-[1.5] text-[#4F5E55]"
+            >
               {content.disclaimerText}
             </p>
           </section>
@@ -450,32 +490,6 @@ export default function App() {
             </div>
           </section>
 
-          {/* 13. SOSTIENI ASTA */}
-          <section
-            id="sostieni-asta"
-            aria-labelledby="heading-sostieni"
-            className="rounded-[22px] sm:rounded-[30px] bg-[#FCFBF7] border border-[rgba(36,56,43,0.10)] py-7 px-5 sm:py-[clamp(36px,5.5vw,58px)] sm:px-[clamp(22px,4.5vw,52px)] text-center"
-          >
-            <div className="max-w-[720px] mx-auto">
-              <h2
-                id="heading-sostieni"
-                className="font-serif font-semibold text-[clamp(26px,5.2vw,46px)] leading-[1.12] sm:leading-[1.08] text-[#24382B] text-balance"
-              >
-                {content.supportHeading}
-              </h2>
-              <p className="mt-3.5 sm:mt-4 text-[16px] sm:text-[18px] leading-[1.65] sm:leading-[1.7] text-[#4F5E55] text-left sm:text-center">
-                {content.supportText}
-              </p>
-              <div className="mt-6 sm:mt-7 flex justify-center">
-                <a
-                  href={MAILTO_HREF}
-                  className="w-full max-w-[320px] sm:w-auto inline-flex items-center justify-center min-h-[48px] px-7 rounded-full font-semibold text-[15px] no-underline bg-[#3E5B47] text-white hover:bg-[#24382B] transition-colors whitespace-nowrap shrink-0"
-                >
-                  {content.ctaContact}
-                </a>
-              </div>
-            </div>
-          </section>
 
           {/* 14. DOMANDE FREQUENTI */}
           <section
@@ -490,6 +504,15 @@ export default function App() {
               {content.faqHeading}
             </h2>
             <FaqAccordion items={content.faqItems} />
+            <p className="mt-6 text-[15px] sm:text-[16px] text-[#4F5E55]">
+              {content.faqEmailNote}{' '}
+              <a
+                href={MAILTO_HREF}
+                className="font-medium text-[#24382B] underline underline-offset-4 hover:text-[#3E5B47] transition-colors"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </section>
 
           {/* 15. CONTATTI */}

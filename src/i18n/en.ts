@@ -22,13 +22,14 @@ export const EN_CONTENT: LocaleContent = {
   navLinks: [
     { href: '#chi-siamo', label: 'About us' },
     { href: '#terapiste', label: 'Therapists' },
-    { href: '#cose-il-training-autogeno', label: 'The method' },
+    { href: '#training-autogeno', label: 'The method' },
     { href: '#benefici', label: 'Benefits' },
     { href: '#contatti', label: 'Contact' },
   ],
   ctaContact: 'Contact us',
-  heroTitle: 'Autogenic Training: learn to find calm, on your own.',
-  heroSubtitle:
+  taTitle: 'Autogenic Training',
+  taTitleLine2: 'learn to find calm, on your own.',
+  taSubtitle:
     'A scientifically grounded method of self-relaxation, for the wellbeing of mind and body.',
   aboutHeading: 'ASTA: about us',
   aboutText:
@@ -45,8 +46,9 @@ export const EN_CONTENT: LocaleContent = {
     'Meet community needs with non-invasive, safe tools for managing stress and tension.',
   ],
   joinHeading: 'Join ASTA',
+  joinTherapistTitle: 'Are you an RME-recognised complementary AT therapist?',
   joinText:
-    'Are you an RME-recognised complementary AT therapist? Join the association to take part in supervision and peer review, training events, and a professional network that promotes quality and ethics.',
+    'Join the association to take part in supervision and peer review, training events, and a professional network that promotes quality and ethics.',
   therapistsHeading: 'RME-recognised founding therapists of ASTA',
   therapistRmeLabel: 'RME Profile',
   therapistRmeAriaPrefix: 'RME Profile of',
@@ -106,10 +108,12 @@ export const EN_CONTENT: LocaleContent = {
   recognitionHeading: 'Recognition and reimbursement',
   recognitionText:
     'Autogenic Training is a complementary medicine method recognised by the RME register, and sessions may be reimbursed by complementary health insurers that include it.',
-  supportHeading: 'Support ASTA',
+  supportHeading: 'Would you like to support ASTA?',
+  supportLead: 'Would you like to support Autogenic Training?',
   supportText:
-    'Would you like to support Autogenic Training? Individuals and organisations can support ASTA as supporting members.',
+    'Individuals and organisations can support ASTA as supporting members.',
   faqHeading: 'Frequently asked questions',
+  faqEmailNote: 'See email:',
   faqItems: [
     {
       id: 'rimborso-cassa-malattia',

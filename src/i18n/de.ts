@@ -22,13 +22,14 @@ export const DE_CONTENT: LocaleContent = {
   navLinks: [
     { href: '#chi-siamo', label: 'Über uns' },
     { href: '#terapiste', label: 'Therapeutinnen' },
-    { href: '#cose-il-training-autogeno', label: 'Die Methode' },
+    { href: '#training-autogeno', label: 'Die Methode' },
     { href: '#benefici', label: 'Wirkung' },
     { href: '#contatti', label: 'Kontakt' },
   ],
   ctaContact: 'Kontaktieren Sie uns',
-  heroTitle: 'Autogenes Training: lernen Sie, Ruhe zu finden, ganz selbstständig.',
-  heroSubtitle:
+  taTitle: 'Autogenes Training',
+  taTitleLine2: 'lernen Sie, Ruhe zu finden, ganz selbstständig.',
+  taSubtitle:
     'Eine wissenschaftlich fundierte Methode der Selbstentspannung für das Wohlbefinden von Körper und Geist.',
   aboutHeading: 'ASTA: Über uns',
   aboutText:
@@ -45,8 +46,9 @@ export const DE_CONTENT: LocaleContent = {
     'Auf die Bedürfnisse der Gemeinschaft mit nicht-invasiven, sicheren Instrumenten zur Bewältigung von Stress und Anspannung eingehen.',
   ],
   joinHeading: 'Mitglied bei ASTA werden',
+  joinTherapistTitle: 'Sind Sie Komplementärtherapeutin oder Komplementärtherapeut AT mit EMR-Anerkennung?',
   joinText:
-    'Sind Sie Komplementärtherapeutin oder Komplementärtherapeut für Autogenes Training mit EMR-Anerkennung? Schliessen Sie sich dem Verein an, um an Supervisionen und Intervisionen, Weiterbildungen und einem Fachnetzwerk für Qualität und Ethik teilzunehmen.',
+    'Schliessen Sie sich dem Verein an, um an Supervisionen und Intervisionen, Weiterbildungen und einem Fachnetzwerk für Qualität und Ethik teilzunehmen.',
   therapistsHeading: 'EMR-anerkannte Gründerinnen von ASTA',
   therapistRmeLabel: 'EMR-Profil',
   therapistRmeAriaPrefix: 'EMR-Profil von',
@@ -106,10 +108,12 @@ export const DE_CONTENT: LocaleContent = {
   recognitionHeading: 'Anerkennung und Rückvergütung',
   recognitionText:
     'Autogenes Training ist eine vom Erfahrungsmedizinischen Register (EMR/RME) anerkannte Methode der Komplementärmedizin; die Sitzungen können von Zusatzversicherungen vergütet werden, die diese Leistung vorsehen.',
-  supportHeading: 'ASTA unterstützen',
+  supportHeading: 'Möchten Sie ASTA unterstützen?',
+  supportLead: 'Möchten Sie das Autogene Training unterstützen?',
   supportText:
-    'Möchten Sie das Autogene Training unterstützen? Privatpersonen und Organisationen können ASTA als Gönnermitglieder unterstützen.',
+    'Privatpersonen und Organisationen können ASTA als Gönnermitglieder unterstützen.',
   faqHeading: 'Häufige Fragen',
+  faqEmailNote: 'Siehe E-Mail:',
   faqItems: [
     {
       id: 'rimborso-cassa-malattia',

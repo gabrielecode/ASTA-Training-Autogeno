@@ -54,13 +54,15 @@ export interface LocaleContent {
   langSelectorLabel: string;
   navLinks: readonly NavItem[];
   ctaContact: string;
-  heroTitle: string;
-  heroSubtitle: string;
+  taTitle: string;
+  taTitleLine2: string;
+  taSubtitle: string;
   aboutHeading: string;
   aboutText: string;
   goalsHeading: string;
   goals: readonly string[];
   joinHeading: string;
+  joinTherapistTitle: string;
   joinText: string;
   therapistsHeading: string;
   therapistRmeLabel: string;
@@ -84,8 +86,10 @@ export interface LocaleContent {
   recognitionHeading: string;
   recognitionText: string;
   supportHeading: string;
+  supportLead: string;
   supportText: string;
   faqHeading: string;
+  faqEmailNote: string;
   faqItems: readonly FaqItem[];
   contactHeading: string;
   emailLabel: string;

@@ -22,13 +22,14 @@ export const IT_CONTENT: LocaleContent = {
   navLinks: [
     { href: '#chi-siamo', label: 'Chi siamo' },
     { href: '#terapiste', label: 'Terapiste' },
-    { href: '#cose-il-training-autogeno', label: 'Il metodo' },
+    { href: '#training-autogeno', label: 'Il metodo' },
     { href: '#benefici', label: 'Benefici' },
     { href: '#contatti', label: 'Contatti' },
   ],
   ctaContact: 'Contattaci',
-  heroTitle: 'Training Autogeno: impara a ritrovare la calma, da solo.',
-  heroSubtitle:
+  taTitle: 'Training Autogeno',
+  taTitleLine2: 'impara a ritrovare la calma, da solo.',
+  taSubtitle:
     'Un metodo scientificamente fondato di auto distensione, per il benessere di mente e corpo.',
   aboutHeading: 'ASTA: chi siamo',
   aboutText:
@@ -45,8 +46,9 @@ export const IT_CONTENT: LocaleContent = {
     'Rispondere ai bisogni della comunità con strumenti non invasivi e sicuri per la gestione di stress e tensioni.',
   ],
   joinHeading: 'Entra in ASTA',
+  joinTherapistTitle: 'Sei un/una terapista complementare TA RME?',
   joinText:
-    'Sei un/una terapista complementare TA RME? Unisciti all’associazione per partecipare a supervisioni e intervisioni, eventi formativi e a una rete professionale che promuove qualità ed etica.',
+    'Unisciti all’associazione per partecipare a supervisioni e intervisioni, eventi formativi e a una rete professionale che promuove qualità ed etica.',
   therapistsHeading: 'Terapiste fondatrici di ASTA riconosciute RME',
   therapistRmeLabel: 'Profilo RME',
   therapistRmeAriaPrefix: 'Profilo RME di',
@@ -106,10 +108,12 @@ export const IT_CONTENT: LocaleContent = {
   recognitionHeading: 'Riconoscimento e rimborso',
   recognitionText:
     'Il Training Autogeno è un metodo di medicina complementare riconosciuto dal registro RME, e le sedute possono essere rimborsate dalle casse malati complementari che lo prevedono.',
-  supportHeading: 'Sostieni ASTA',
+  supportHeading: 'Vuoi sostenere ASTA?',
+  supportLead: 'Vuoi sostenere il Training Autogeno?',
   supportText:
-    'Vuoi sostenere il Training Autogeno? Persone e organizzazioni possono sostenere ASTA come soci sostenitori.',
+    'Persone e organizzazioni possono sostenere ASTA come soci sostenitori.',
   faqHeading: 'Domande frequenti',
+  faqEmailNote: 'Vedi e-mail:',
   faqItems: [
     {
       id: 'rimborso-cassa-malattia',
