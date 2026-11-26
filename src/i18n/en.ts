@@ -152,4 +152,94 @@ export const EN_CONTENT: LocaleContent = {
   ],
   contactHeading: 'Contact',
   emailLabel: 'Email',
+  legal: {
+    privacyLabel: 'Privacy Policy',
+    cookiesLabel: 'Cookie Policy',
+    cookieSettingsLabel: 'Cookie preferences',
+    closeModalLabel: 'Close information dialog',
+    lastUpdated: 'Last updated: November 2026',
+    bannerAriaLabel: 'Cookie and local storage notice',
+    bannerTitle: 'Your privacy under Swiss law (FADP)',
+    bannerText:
+      'This website uses only your browser’s local storage (localStorage) to remember your chosen language and cookie preference. We do not use profiling cookies and do not load fonts from external servers.',
+    bannerEssentialBtn: 'Essential only',
+    bannerAcceptAllBtn: 'Accept all',
+    currentPreferenceLabel: 'Current preference saved in your browser:',
+    preferenceEssentialLabel: 'Essential only',
+    preferenceAllLabel: 'All accepted',
+    preferenceNoneLabel: 'Not set yet',
+    privacyTitle: 'Privacy Policy (Swiss FADP)',
+    privacyIntro:
+      'This notice explains how the Swiss Autogenic Training Association (ASTA) processes visitors’ personal data in accordance with the Swiss Federal Act on Data Protection (FADP). Protecting your privacy and minimising data collection are core priorities for us.',
+    privacySections: [
+      {
+        title: '1. Data controller',
+        body: 'The data controller is the Swiss Autogenic Training Association (ASTA), a non-profit association based in Lugano-Pregassona, Ticino, Switzerland. For any privacy-related inquiry, please contact us at info@associazioneta.ch.',
+      },
+      {
+        title: '2. Core principles and no online forms',
+        body: 'This website is purely informational and does not require account registration or submit forms stored on our servers. We process data in accordance with the principles of lawfulness, good faith, proportionality, and purpose limitation under the Swiss FADP.',
+      },
+      {
+        title: '3. Technical connection logs and hosting',
+        body: 'When you access our pages, the hosting infrastructure automatically records technical server logs required for secure delivery (IP address, date and time of request, requested resource, browser type, and operating system). These logs are used solely to ensure system stability, diagnostics, and IT security.',
+      },
+      {
+        title: '4. Browser preferences and self-hosted fonts',
+        body: 'Your display preferences (selected language and cookie choice) are stored exclusively locally in your browser via localStorage and are never sent to tracking servers. All website typefaces are hosted locally as part of the site bundle, so no requests are sent to Google Fonts or external third parties.',
+      },
+      {
+        title: '5. Contacting us by email',
+        body: 'If you contact us via the email links on this site (info@associazioneta.ch), the information you voluntarily provide (sender address, subject, and message) will be used solely to respond to your inquiry regarding membership, support, or general information. It is never sold or used for marketing.',
+      },
+      {
+        title: '6. Links to external websites',
+        body: 'This site contains links to external websites, notably the therapists’ public profiles on the Empirical Medicine Register (emr.ch) and the partner link in the footer. Following these links takes you outside our domain, where the respective operators’ privacy policies apply.',
+      },
+      {
+        title: '7. Cross-border disclosure and retention',
+        body: 'Data is retained only for as long as necessary for the stated purposes or required by Swiss law. Where hosting infrastructure processes technical data outside Switzerland or the EEA, it does so in compliance with the safeguards of Art. 16 and 17 FADP.',
+      },
+      {
+        title: '8. Your rights and Swiss supervisory authority',
+        body: 'Under Art. 25 et seq. FADP, you have the right to request free access to your personal data as well as rectification, erasure, restriction, or data portability. Please write to info@associazioneta.ch to exercise your rights. You also have the right to contact the Swiss supervisory authority: Federal Data Protection and Information Commissioner (FDPIC), Feldeggweg 1, 3003 Bern.',
+      },
+    ],
+    cookiesTitle: 'Cookie Policy (TCA & FADP)',
+    cookiesIntro:
+      'In accordance with Art. 45c of the Swiss Telecommunications Act (TCA) and the Swiss Federal Act on Data Protection (FADP), this notice transparently explains the local browser storage technologies used on this website.',
+    cookiesSections: [
+      {
+        title: '1. No advertising or tracking cookies',
+        body: 'This website does not set third-party advertising, profiling, or behavioural analytics cookies. No cross-site tracking takes place.',
+      },
+      {
+        title: '2. Strictly necessary local storage',
+        body: 'To remember your selected language and cookie preference, the site uses only your browser’s localStorage. This information remains on your device and under your control.',
+      },
+      {
+        title: '3. Managing or changing your preference',
+        body: 'On your first visit you can choose between "Essential only" and "Accept all". You may update or withdraw your choice at any time via "Cookie preferences" in the footer, or clear site data in your browser settings.',
+      },
+    ],
+    cookiesTableHeading: 'Items stored locally in your browser',
+    cookiesColName: 'Key',
+    cookiesColPurpose: 'Purpose',
+    cookiesColCategory: 'Category',
+    cookiesColDuration: 'Duration',
+    cookiesItems: [
+      {
+        name: 'asta_lang',
+        purpose: 'Stores your chosen display language (IT, DE, FR, EN).',
+        category: 'Technical / Essential',
+        duration: 'Persistent in browser until manually cleared',
+      },
+      {
+        name: 'asta_cookie_consent',
+        purpose: 'Stores your cookie banner choice together with timestamp and policy version.',
+        category: 'Technical / Essential',
+        duration: 'Persistent in browser until changed or cleared',
+      },
+    ],
+  },
 };

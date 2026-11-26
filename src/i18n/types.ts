@@ -40,6 +40,47 @@ export interface TherapistLocalized {
   rmeUrl: string;
 }
 
+export interface LegalSection {
+  title: string;
+  body: string;
+}
+
+export interface CookieStorageEntry {
+  name: string;
+  purpose: string;
+  category: string;
+  duration: string;
+}
+
+export interface LegalContent {
+  privacyLabel: string;
+  cookiesLabel: string;
+  cookieSettingsLabel: string;
+  closeModalLabel: string;
+  lastUpdated: string;
+  bannerAriaLabel: string;
+  bannerTitle: string;
+  bannerText: string;
+  bannerEssentialBtn: string;
+  bannerAcceptAllBtn: string;
+  currentPreferenceLabel: string;
+  preferenceEssentialLabel: string;
+  preferenceAllLabel: string;
+  preferenceNoneLabel: string;
+  privacyTitle: string;
+  privacyIntro: string;
+  privacySections: readonly LegalSection[];
+  cookiesTitle: string;
+  cookiesIntro: string;
+  cookiesSections: readonly LegalSection[];
+  cookiesTableHeading: string;
+  cookiesColName: string;
+  cookiesColPurpose: string;
+  cookiesColCategory: string;
+  cookiesColDuration: string;
+  cookiesItems: readonly CookieStorageEntry[];
+}
+
 export interface LocaleContent {
   htmlLang: string;
   metaTitle: string;
@@ -93,4 +134,5 @@ export interface LocaleContent {
   faqItems: readonly FaqItem[];
   contactHeading: string;
   emailLabel: string;
+  legal: LegalContent;
 }

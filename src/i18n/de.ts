@@ -152,4 +152,94 @@ export const DE_CONTENT: LocaleContent = {
   ],
   contactHeading: 'Kontakt',
   emailLabel: 'E-Mail',
+  legal: {
+    privacyLabel: 'Datenschutzerklärung',
+    cookiesLabel: 'Cookie-Richtlinie',
+    cookieSettingsLabel: 'Cookie-Einstellungen',
+    closeModalLabel: 'Informationsfenster schliessen',
+    lastUpdated: 'Letzte Aktualisierung: November 2026',
+    bannerAriaLabel: 'Hinweis zu Cookies und lokaler Speicherung',
+    bannerTitle: 'Schutz Ihrer Privatsphäre (Schweizer DSG)',
+    bannerText:
+      'Diese Website verwendet ausschliesslich den lokalen Browserspeicher (localStorage), um Ihre gewählte Sprache und Ihre Cookie-Präferenzen zu speichern. Wir setzen keine Marketing-Cookies ein und laden keine Schriften von externen Servern.',
+    bannerEssentialBtn: 'Nur essenzielle',
+    bannerAcceptAllBtn: 'Alle akzeptieren',
+    currentPreferenceLabel: 'Aktuell im Browser gespeicherte Präferenz:',
+    preferenceEssentialLabel: 'Nur essenzielle',
+    preferenceAllLabel: 'Alle akzeptiert',
+    preferenceNoneLabel: 'Noch nicht festgelegt',
+    privacyTitle: 'Datenschutzerklärung (revDSG)',
+    privacyIntro:
+      'Diese Datenschutzerklärung erläutert, wie der Schweizerische Verein für Autogenes Training (ASTA) Personendaten von Besucherinnen und Besuchern gemäss dem Schweizer Bundesgesetz über den Datenschutz (DSG) bearbeitet. Der Schutz Ihrer Privatsphäre und die Datenminimierung haben für uns höchste Priorität.',
+    privacySections: [
+      {
+        title: '1. Verantwortliche Stelle',
+        body: 'Verantwortlich für die Datenbearbeitung ist der Schweizerische Verein für Autogenes Training (ASTA), ein gemeinnütziger Verein mit Sitz in Lugano-Pregassona, Tessin, Schweiz. Für Anfragen zum Datenschutz erreichen Sie uns unter info@associazioneta.ch.',
+      },
+      {
+        title: '2. Grundsätze und keine Online-Formulare',
+        body: 'Diese Website dient ausschliesslich der Information und erfordert weder eine Registrierung noch das Ausfüllen von serverseitigen Online-Formularen. Wir bearbeiten Daten nach den Grundsätzen der Rechtmässigkeit, von Treu und Glauben, der Verhältnismässigkeit und der Zweckbindung gemäss DSG.',
+      },
+      {
+        title: '3. Technische Verbindungsdaten und Hosting',
+        body: 'Beim Aufruf unserer Seiten erfasst die Hosting-Infrastruktur automatisch technische Logdaten, die für die sichere Auslieferung erforderlich sind (IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, Browsertyp und Betriebssystem). Diese Angaben dienen ausschliesslich der Systemsicherheit, Stabilität und technischen Wartung.',
+      },
+      {
+        title: '4. Lokale Präferenzen und lokal gehostete Schriften',
+        body: 'Ihre Einstellungen (gewählte Sprache und Cookie-Entscheidung) werden ausschliesslich lokal in Ihrem Browser über localStorage gespeichert und nicht an Tracking-Server übermittelt. Die verwendeten Schriftarten sind vollständig lokal auf dem Webserver eingebunden, sodass keine Verbindung zu Google Fonts oder externen Schriftdiensten hergestellt wird.',
+      },
+      {
+        title: '5. Kontaktaufnahme per E-Mail',
+        body: 'Wenn Sie uns über die angegebenen E-Mail-Links (info@associazioneta.ch) kontaktieren, verwenden wir Ihre freiwillig übermittelten Angaben (Absenderadresse, Betreff und Nachrichteninhalt) ausschliesslich zur Bearbeitung Ihrer Anfrage zu Mitgliedschaft, Gönnerschaft oder allgemeinen Informationen. Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt.',
+      },
+      {
+        title: '6. Links zu externen Websites',
+        body: 'Unsere Website enthält Links zu externen Angeboten, insbesondere zu den öffentlichen Profilen der Therapeutinnen im Erfahrungsmedizinischen Register (emr.ch) sowie zur im Footer verlinkten Partnerwebsite. Beim Anklicken dieser Links verlassen Sie unsere Website; es gelten die Datenschutzbestimmungen der jeweiligen Betreiber.',
+      },
+      {
+        title: '7. Bekanntgabe ins Ausland und Aufbewahrungsdauer',
+        body: 'Wir bewahren Daten nur so lange auf, wie es für die genannten Zwecke erforderlich oder gesetzlich vorgeschrieben ist. Sofern die Hosting-Infrastruktur technische Daten ausserhalb der Schweiz oder des EWR verarbeitet, erfolgt dies unter Einhaltung der Garantien gemäss Art. 16 und 17 DSG.',
+      },
+      {
+        title: '8. Rechte betroffener Personen und Aufsichtsbehörde',
+        body: 'Gemäss Art. 25 ff. DSG haben Sie das Recht auf unentgeltliche Auskunft über Ihre bearbeiteten Daten sowie auf Berichtigung, Löschung, Einschränkung oder Herausgabe. Wenden Sie sich hierfür bitte an info@associazioneta.ch. Zudem können Sie sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB), Feldeggweg 1, 3003 Bern, wenden.',
+      },
+    ],
+    cookiesTitle: 'Cookie-Richtlinie (FMG & DSG)',
+    cookiesIntro:
+      'Gemäss Art. 45c des Fernmeldegesetzes (FMG) und dem Bundesgesetz über den Datenschutz (DSG) informieren wir Sie nachfolgend transparent über die auf dieser Website eingesetzten lokalen Speichertechnologien.',
+    cookiesSections: [
+      {
+        title: '1. Keine Werbe- oder Tracking-Cookies',
+        body: 'Diese Website setzt keine Cookies von Drittanbietern zu Werbe-, Profiling- oder Analysezwecken ein. Es findet kein websiteübergreifendes Tracking statt.',
+      },
+      {
+        title: '2. Technisch notwendige lokale Speicherung',
+        body: 'Um Ihre Spracheinstellung und Ihre Cookie-Auswahl beizubehalten, nutzt diese Website ausschliesslich den lokalen Speicher Ihres Browsers (localStorage). Die gespeicherten Informationen verbleiben auf Ihrem Gerät.',
+      },
+      {
+        title: '3. Verwaltung und Widerruf Ihrer Auswahl',
+        body: 'Beim ersten Besuch können Sie zwischen "Nur essenzielle" und "Alle akzeptieren" wählen. Sie können Ihre Entscheidung jederzeit über "Cookie-Einstellungen" in der Fusszeile anpassen oder über die Browsereinstellungen löschen.',
+      },
+    ],
+    cookiesTableHeading: 'Übersicht der lokal gespeicherten Einträge',
+    cookiesColName: 'Schlüssel',
+    cookiesColPurpose: 'Zweck',
+    cookiesColCategory: 'Kategorie',
+    cookiesColDuration: 'Speicherdauer',
+    cookiesItems: [
+      {
+        name: 'asta_lang',
+        purpose: 'Speichert die ausgewählte Anzeigesprache (IT, DE, FR, EN).',
+        category: 'Technisch / Essenziell',
+        duration: 'Dauerhaft im Browser bis zur manuellen Löschung',
+      },
+      {
+        name: 'asta_cookie_consent',
+        purpose: 'Speichert Ihre Auswahl im Cookie-Banner samt Zeitstempel und Richtlinien-Version.',
+        category: 'Technisch / Essenziell',
+        duration: 'Dauerhaft im Browser bis zur Änderung oder Löschung',
+      },
+    ],
+  },
 };

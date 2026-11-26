@@ -151,4 +151,94 @@ export const IT_CONTENT: LocaleContent = {
   ],
   contactHeading: 'Contatti',
   emailLabel: 'E-mail',
+  legal: {
+    privacyLabel: 'Privacy Policy',
+    cookiesLabel: 'Cookie Policy',
+    cookieSettingsLabel: 'Preferenze cookie',
+    closeModalLabel: 'Chiudi finestra informativa',
+    lastUpdated: 'Ultimo aggiornamento: novembre 2026',
+    bannerAriaLabel: 'Informativa sui cookie e preferenze di salvataggio locale',
+    bannerTitle: 'Rispetto della tua privacy (normativa svizzera nLPD)',
+    bannerText:
+      'Questo sito utilizza esclusivamente la memoria locale del browser (localStorage) per ricordare la lingua scelta e le preferenze sui cookie. Non utilizziamo cookie di profilazione né carichiamo font da server esterni.',
+    bannerEssentialBtn: 'Solo essenziali',
+    bannerAcceptAllBtn: 'Accetta tutti',
+    currentPreferenceLabel: 'Preferenza attuale salvata nel browser:',
+    preferenceEssentialLabel: 'Solo essenziali',
+    preferenceAllLabel: 'Tutti accettati',
+    preferenceNoneLabel: 'Non ancora espressa',
+    privacyTitle: 'Informativa sulla privacy (nLPD)',
+    privacyIntro:
+      'La presente informativa spiega come l’Associazione di Training Autogeno Svizzera (ASTA) tratta i dati personali dei visitatori in conformità alla Legge federale sulla protezione dei dati (nLPD). La tutela della sfera privata e la minimizzazione dei dati sono per noi prioritarie.',
+    privacySections: [
+      {
+        title: '1. Titolare del trattamento',
+        body: 'Il titolare del trattamento dei dati è l’Associazione di Training Autogeno Svizzera (ASTA), associazione senza scopo di lucro con sede a Lugano-Pregassona, Ticino, Svizzera. Per qualsiasi richiesta relativa alla protezione dei dati potete scriverci all’indirizzo e-mail info@associazioneta.ch.',
+      },
+      {
+        title: '2. Principi e assenza di raccolta moduli',
+        body: 'Il sito ha natura puramente informativa e non richiede alcuna registrazione né prevede moduli di invio dati ospitati su server propri. Trattiamo i dati secondo i principi di liceità, buona fede, proporzionalità e limitazione delle finalità previsti dalla nLPD.',
+      },
+      {
+        title: '3. Dati tecnici di navigazione e hosting',
+        body: 'Al momento dell’accesso al sito, l’infrastruttura di hosting registra automaticamente nei file di log tecnici alcune informazioni necessarie alla trasmissione sicura delle pagine (indirizzo IP, data e ora della richiesta, pagina visitata, tipo di browser e sistema operativo). Questi dati tecnici servono esclusivamente a garantire la stabilità, la diagnostica e la sicurezza informatica del sito.',
+      },
+      {
+        title: '4. Preferenze nel browser e font ospitati localmente',
+        body: 'Le preferenze di navigazione (lingua selezionata e consenso sui cookie) sono salvate unicamente in locale nel vostro browser tramite localStorage e non vengono trasmesse a server di tracciamento. I caratteri tipografici del sito sono ospitati direttamente in locale sul server del sito stesso: nessuna connessione viene effettuata verso Google Fonts o reti esterne.',
+      },
+      {
+        title: '5. Contatti tramite e-mail',
+        body: 'Se scegliete di contattarci tramite i link di posta elettronica presenti sul sito (info@associazioneta.ch), i dati forniti volontariamente (indirizzo mittente, oggetto e testo del messaggio) saranno utilizzati esclusivamente per rispondere alla vostra richiesta di informazioni, adesione o sostegno. I messaggi non vengono ceduti a terzi né utilizzati per finalità pubblicitarie.',
+      },
+      {
+        title: '6. Collegamenti a siti esterni',
+        body: 'Il sito include collegamenti diretti verso pagine esterne, in particolare i profili pubblici delle terapiste sul Registro di Medicina Empirica (emr.ch) e il sito web partner indicato nel piè di pagina. Aprendo tali collegamenti si abbandona il nostro dominio e si applicano esclusivamente le politiche sulla privacy dei rispettivi gestori.',
+      },
+      {
+        title: '7. Comunicazione all’estero e conservazione',
+        body: 'I dati sono conservati solo per il tempo strettamente necessario al raggiungimento delle finalità indicate o imposto da obblighi legali svizzeri. Qualora i servizi di hosting trattino dati tecnici in Paesi al di fuori della Svizzera o dello Spazio Economico Europeo, il trasferimento avviene esclusivamente nel rispetto delle garanzie previste dagli art. 16 e 17 nLPD.',
+      },
+      {
+        title: '8. Diritti della persona interessata e autorità svizzera',
+        body: 'Ai sensi degli art. 25 e seguenti della nLPD, avete il diritto di chiedere gratuitamente informazioni sui vostri dati trattati, nonché di richiederne la rettifica, la cancellazione, la limitazione o la consegna. Per esercitare i vostri diritti potete scrivere a info@associazioneta.ch. Avete inoltre la facoltà di rivolgervi all’autorità svizzera competente: Incaricato federale della protezione dei dati e della trasparenza (IFPDT), Feldeggweg 1, 3003 Berna.',
+      },
+    ],
+    cookiesTitle: 'Informativa sui cookie (LTC & nLPD)',
+    cookiesIntro:
+      'Ai sensi dell’art. 45c della Legge federale sulle telecomunicazioni (LTC) e della Legge federale sulla protezione dei dati (nLPD), questa informativa illustra in modo trasparente quali tecnologie di archiviazione locale vengono utilizzate su questo sito.',
+    cookiesSections: [
+      {
+        title: '1. Nessun cookie pubblicitario o di tracciamento',
+        body: 'Questo sito non imposta cookie di marketing, profilazione o analisi comportamentale di terze parti. Non effettuiamo alcun tracciamento tra siti web né condividiamo identificatori pubblicitari.',
+      },
+      {
+        title: '2. Archiviazione locale strettamente necessaria',
+        body: 'Per offrire un’esperienza corretta e ricordare le scelte effettuate dall’utente, il sito utilizza esclusivamente la memoria locale del browser (localStorage). Questa tecnica non invia dati a server esterni e rimane sotto il pieno controllo del vostro dispositivo.',
+      },
+      {
+        title: '3. Gestione e modifica delle preferenze',
+        body: 'Al primo accesso potete scegliere tra "Solo essenziali" e "Accetta tutti". Potete modificare o revocare in qualsiasi momento la vostra decisione cliccando su "Preferenze cookie" nel piè di pagina del sito, oppure cancellando i dati del sito dalle impostazioni del vostro browser.',
+      },
+    ],
+    cookiesTableHeading: 'Elenco degli elementi memorizzati nel browser',
+    cookiesColName: 'Chiave',
+    cookiesColPurpose: 'Finalità',
+    cookiesColCategory: 'Categoria',
+    cookiesColDuration: 'Durata',
+    cookiesItems: [
+      {
+        name: 'asta_lang',
+        purpose: 'Memorizza la lingua di visualizzazione scelta dall’utente (IT, DE, FR, EN).',
+        category: 'Tecnico / Essenziale',
+        duration: 'Persistente nel browser fino a rimozione manuale',
+      },
+      {
+        name: 'asta_cookie_consent',
+        purpose: 'Salva la scelta espressa nel banner cookie insieme a data e versione dell’informativa.',
+        category: 'Tecnico / Essenziale',
+        duration: 'Persistente nel browser fino a modifica o rimozione',
+      },
+    ],
+  },
 };

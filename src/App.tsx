@@ -24,6 +24,14 @@ import { MobileDrawer } from './components/MobileDrawer';
 import { FaqAccordion } from './components/FaqAccordion';
 import { LanguageSelector } from './components/LanguageSelector';
 import { Paragraphs } from './components/Paragraphs';
+import { CookieBanner } from './components/CookieBanner';
+import { LegalModal, type LegalDocType } from './components/LegalModal';
+import {
+  readConsent,
+  saveConsent,
+  type CookieConsentChoice,
+  type CookieConsentRecord,
+} from './consent';
 
 function detectInitialLang(): Lang {
   try {
@@ -46,6 +54,15 @@ export default function App() {
   const [lang, setLang] = useState<Lang>(detectInitialLang);
   const [content, setContent] = useState<LocaleContent>(IT_CONTENT);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [consent, setConsent] = useState<CookieConsentRecord | null>(() => readConsent());
+  const [bannerOpen, setBannerOpen] = useState<boolean>(() => readConsent() === null);
+  const [legalModal, setLegalModal] = useState<LegalDocType | null>(null);
+
+  const handleSelectConsent = (choice: CookieConsentChoice) => {
+    const saved = saveConsent(choice);
+    setConsent(saved);
+    setBannerOpen(false);
+  };
 
   useEffect(() => {
     let active = true;
@@ -554,36 +571,85 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="border-t border-[rgba(36,56,43,0.14)] py-7 sm:py-8 text-[#4F5E55] text-[13.5px] sm:text-[14px] bg-[#F6F3EA]">
-        <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4">
-            <img
-              src={LOGO_SRC}
-              alt={content.logoAlt}
-              className="h-11 sm:h-12 w-auto mix-blend-multiply shrink-0"
-            />
-            <span>{content.orgName}</span>
+        <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto space-y-5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4">
+              <img
+                src={LOGO_SRC}
+                alt={content.logoAlt}
+                className="h-11 sm:h-12 w-auto mix-blend-multiply shrink-0"
+              />
+              <span>{content.orgName}</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-end gap-2.5 sm:gap-4 lg:gap-5">
+              <span>{content.orgLocation}</span>
+              <a
+                href={MAILTO_HREF}
+                className="text-[#24382B] font-medium underline underline-offset-4 hover:text-[#3E5B47] transition-colors"
+              >
+                {CONTACT_EMAIL}
+              </a>
+              <a
+                href={SITITICINO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 min-h-[36px] px-4 py-1.5 rounded-full font-semibold text-[13px] no-underline border border-[#3E5B47]/45 text-[#24382B] bg-[#FCFBF7]/80 hover:bg-[#3E5B47] hover:text-white hover:border-[#3E5B47] transition-colors text-center shrink-0 max-w-full"
+              >
+                <span>Vuoi un sito come questo? Contattaci – Connect &amp; Create</span>
+                <ArrowUpRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-end gap-2.5 sm:gap-4 lg:gap-5">
-            <span>{content.orgLocation}</span>
-            <a
-              href={MAILTO_HREF}
-              className="text-[#24382B] font-medium underline underline-offset-4 hover:text-[#3E5B47] transition-colors"
+          <div className="pt-4 border-t border-[rgba(36,56,43,0.10)] flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-2 text-[13px] sm:text-[13.5px]">
+            <button
+              type="button"
+              onClick={() => setLegalModal('privacy')}
+              className="text-[#24382B] font-medium underline underline-offset-4 hover:text-[#3E5B47] transition-colors cursor-pointer bg-transparent border-0 p-0"
             >
-              {CONTACT_EMAIL}
-            </a>
-            <a
-              href={SITITICINO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 min-h-[36px] px-4 py-1.5 rounded-full font-semibold text-[13px] no-underline border border-[#3E5B47]/45 text-[#24382B] bg-[#FCFBF7]/80 hover:bg-[#3E5B47] hover:text-white hover:border-[#3E5B47] transition-colors text-center shrink-0 max-w-full"
+              {content.legal.privacyLabel}
+            </button>
+            <span aria-hidden="true" className="text-[#4F5E55]/60">
+              ·
+            </span>
+            <button
+              type="button"
+              onClick={() => setLegalModal('cookies')}
+              className="text-[#24382B] font-medium underline underline-offset-4 hover:text-[#3E5B47] transition-colors cursor-pointer bg-transparent border-0 p-0"
             >
-              <span>Vuoi un sito come questo? Contattaci – Connect &amp; Create</span>
-              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-            </a>
+              {content.legal.cookiesLabel}
+            </button>
+            <span aria-hidden="true" className="text-[#4F5E55]/60">
+              ·
+            </span>
+            <button
+              type="button"
+              onClick={() => setBannerOpen(true)}
+              className="text-[#24382B] font-medium underline underline-offset-4 hover:text-[#3E5B47] transition-colors cursor-pointer bg-transparent border-0 p-0"
+            >
+              {content.legal.cookieSettingsLabel}
+            </button>
           </div>
         </div>
       </footer>
+
+      <CookieBanner
+        open={bannerOpen}
+        legal={content.legal}
+        onSelect={handleSelectConsent}
+        onOpenPrivacy={() => setLegalModal('privacy')}
+        onOpenCookies={() => setLegalModal('cookies')}
+      />
+
+      <LegalModal
+        docType={legalModal}
+        legal={content.legal}
+        consent={consent}
+        onClose={() => setLegalModal(null)}
+        onSwitchDoc={(next) => setLegalModal(next)}
+        onOpenCookieSettings={() => setBannerOpen(true)}
+      />
     </div>
   );
 }

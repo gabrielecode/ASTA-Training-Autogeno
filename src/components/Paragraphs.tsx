@@ -8,7 +8,7 @@ import React from 'react';
 export function splitSentences(text: string): string[] {
   return text
     .replace(/\bJ\.H\./g, 'J__DOT__H__DOT__')
-    .split(/\.\s+/)
+    .split(/\.\s+(?=[A-ZÀÈÉÌÒÙÄÖÜŒ])/)
     .map((part, idx, arr) => {
       const restored = part.replace(/J__DOT__H__DOT__/g, 'J.H.').trim();
       return idx < arr.length - 1 && !restored.endsWith('.') ? `${restored}.` : restored;
