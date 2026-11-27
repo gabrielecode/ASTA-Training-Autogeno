@@ -249,30 +249,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* BREADCRUMB NAVIGATION BAR */}
-      <nav aria-label={content.breadcrumbAriaLabel} className="bg-[#FCFBF7] border-b border-[rgba(36,56,43,0.10)] py-2 sm:py-2.5">
-        <div className="w-[min(1180px,calc(100%-24px))] sm:w-[min(1180px,calc(100%-32px))] mx-auto flex items-center flex-wrap gap-1.5 text-[13px] sm:text-[14px] text-[#4F5E55]">
-          <a
-            href="#top"
-            className="hover:text-[#24382B] transition-colors font-medium underline underline-offset-2"
-          >
-            {content.breadcrumbHome}
-          </a>
-          {content.navLinks.map((link) => (
-            <React.Fragment key={link.href}>
-              <span aria-hidden="true" className="text-[#4F5E55]/50 px-1">
-                /
-              </span>
-              <a
-                href={link.href}
-                className="hover:text-[#24382B] transition-colors"
-              >
-                {link.label}
-              </a>
-            </React.Fragment>
-          ))}
-        </div>
-      </nav>
+
 
       <MobileDrawer
         open={mobileMenuOpen}
